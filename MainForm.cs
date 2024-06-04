@@ -65,9 +65,6 @@ namespace Ship_Class_System_Config_Editor
         private void lstbx_GridClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
-            lstbx_BlockLimits.ClearSelected();
-            lstbx_BlockTypes.ClearSelected();
-
             if (selectedGridClass == null) return;
 
             selectedGridClassBindingSource.DataSource = selectedGridClass;
@@ -81,6 +78,9 @@ namespace Ship_Class_System_Config_Editor
 
             blockLimitsBindingSource.DataSource = selectedGridClass?.BlockLimits;
             blockLimitsBindingSource.ResetBindings(false);
+
+            lstbx_BlockLimits.ClearSelected();
+            lstbx_BlockTypes.ClearSelected();
         }
 
         private void lstbx_BlockLimits_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,9 +88,9 @@ namespace Ship_Class_System_Config_Editor
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
             if (selectedLimit == null) return;
 
-            lstbx_BlockTypes.ClearSelected();
             blockTypesBindingSource.DataSource = selectedLimit?.BlockTypes;
             blockTypesBindingSource.ResetBindings(false);
+            lstbx_BlockTypes.ClearSelected();
         }
 
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
