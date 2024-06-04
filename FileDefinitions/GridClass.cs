@@ -19,5 +19,12 @@
         public UtilModifiers Modifiers { get; set; }
         public DamageModifiers DamageModifiers { get; set; }
         public List<BlockLimit> BlockLimits { get; set; }
+
+        public GridClass()
+        {
+            BlockLimits = new List<BlockLimit>();
+            Modifiers = new UtilModifiers();
+            DamageModifiers = new DamageModifiers();
+        }
     }
 }

@@ -120,6 +120,7 @@
             btnRemoveBlockType = new Button();
             btnAddBlockType = new Button();
             lstbx_BlockTypes = new ListBox();
+            blockTypeBindingSource = new BindingSource(components);
             label28 = new Label();
             groupBox9 = new GroupBox();
             label31 = new Label();
@@ -155,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)blockTypesBindingSource).BeginInit();
             groupBox7.SuspendLayout();
             groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).BeginInit();
             groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).BeginInit();
             SuspendLayout();
@@ -271,6 +273,7 @@
             btn_DeleteClass.TabIndex = 8;
             btn_DeleteClass.Text = "-";
             btn_DeleteClass.UseVisualStyleBackColor = true;
+            btn_DeleteClass.Click += btn_DeleteClass_Click;
             // 
             // lstbx_GridClasses
             // 
@@ -292,7 +295,7 @@
             // blockLimitsBindingSource
             // 
             blockLimitsBindingSource.DataMember = "BlockLimits";
-            blockLimitsBindingSource.DataSource = modConfigBindingSource;
+            blockLimitsBindingSource.DataSource = gridClassesBindingSource;
             // 
             // grpbx_Details
             // 
@@ -947,6 +950,7 @@
             btnRemoveBlockLimit.TabIndex = 2;
             btnRemoveBlockLimit.Text = "-";
             btnRemoveBlockLimit.UseVisualStyleBackColor = true;
+            btnRemoveBlockLimit.Click += btnRemoveBlockLimit_Click;
             // 
             // btnAddBlockLimit
             // 
@@ -998,6 +1002,7 @@
             // 
             // lstbx_BlockTypes
             // 
+            lstbx_BlockTypes.DataBindings.Add(new Binding("DataContext", blockTypeBindingSource, "SubtypeId", true));
             lstbx_BlockTypes.DataSource = blockTypesBindingSource;
             lstbx_BlockTypes.DisplayMember = "SubtypeId";
             lstbx_BlockTypes.FormattingEnabled = true;
@@ -1007,6 +1012,10 @@
             lstbx_BlockTypes.Size = new Size(160, 244);
             lstbx_BlockTypes.TabIndex = 0;
             lstbx_BlockTypes.SelectedIndexChanged += lstbx_BlockTypes_SelectedIndexChanged;
+            // 
+            // blockTypeBindingSource
+            // 
+            blockTypeBindingSource.DataSource = typeof(FileDefinitions.BlockType);
             // 
             // label28
             // 
@@ -1162,6 +1171,7 @@
             ((System.ComponentModel.ISupportInitialize)blockTypesBindingSource).EndInit();
             groupBox7.ResumeLayout(false);
             groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).EndInit();
             groupBox9.ResumeLayout(false);
             groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).EndInit();
@@ -1274,5 +1284,6 @@
         private Button btnAddBlockLimit;
         private Button btnRemoveBlockType;
         private Button btnAddBlockType;
+        private BindingSource blockTypeBindingSource;
     }
 }

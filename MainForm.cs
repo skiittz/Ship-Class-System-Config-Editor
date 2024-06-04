@@ -17,6 +17,7 @@ namespace Ship_Class_System_Config_Editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            modConfigBindingSource.DataSource = new ModConfig();
         }
 
         public void LoadConfig(string filePath)
@@ -25,8 +26,7 @@ namespace Ship_Class_System_Config_Editor
             using (var reader = new StreamReader(filePath))
                 modConfigBindingSource.DataSource = (ModConfig)serializer.Deserialize(reader);
             currentFile.GridClasses.Add(currentFile.DefaultGridClass);
-            currentFile.GridClasses.OrderBy(x => x.Id);
-            gridClassesBindingSource.DataSource = currentFile.GridClasses;
+            gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
         }
 
         public void SaveConfig(string filename)
@@ -68,6 +68,8 @@ namespace Ship_Class_System_Config_Editor
             lstbx_BlockLimits.ClearSelected();
             lstbx_BlockTypes.ClearSelected();
 
+            if (selectedGridClass == null) return;
+
             selectedGridClassBindingSource.DataSource = selectedGridClass;
             selectedGridClassBindingSource.ResetBindings(false);
 
@@ -84,6 +86,8 @@ namespace Ship_Class_System_Config_Editor
         private void lstbx_BlockLimits_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            if(selectedLimit == null) return;
+
             lstbx_BlockTypes.ClearSelected();
             blockTypesBindingSource.DataSource = selectedLimit?.BlockTypes;
             blockTypesBindingSource.ResetBindings(false);
@@ -92,6 +96,8 @@ namespace Ship_Class_System_Config_Editor
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedType = (BlockType)lstbx_BlockTypes.SelectedItem;
+            if(selectedType == null) return;
+
             selectedBlockTypeBindingSource.DataSource = selectedType ?? new BlockType();
             selectedBlockTypeBindingSource.ResetBindings(false);
         }
@@ -118,7 +124,25 @@ namespace Ship_Class_System_Config_Editor
 
         private void btn_AddNewClass_Click(object sender, EventArgs e)
         {
+            var newId = currentFile.GridClasses.Any() ? currentFile.GridClasses.OrderByDescending(x => x.Id).First().Id + 1 : 0;
+            var newClass = new GridClass { Name = "New Class", Id = newId };
+            currentFile.GridClasses.Add(newClass);
 
+            gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
+            gridClassesBindingSource.ResetBindings(false);
+        }
+
+        private void btnRemoveBlockLimit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_DeleteClass_Click(object sender, EventArgs e)
+        {
+            currentFile.GridClasses.Remove((GridClass)lstbx_GridClasses.SelectedItem);
+            gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
+            gridClassesBindingSource.ResetBindings(false);
+            lstbx_GridClasses.ClearSelected();
         }
     }
 }

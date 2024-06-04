@@ -10,6 +10,10 @@ namespace Ship_Class_System_Config_Editor.Definitions
         public bool IncludeAiFactions { get; set; }
         public GridClass DefaultGridClass { get; set; }
         public List<GridClass> GridClasses { get; set; }
-        public List<BlockLimit> BlockLimits { get; set; }
+
+        public ModConfig()
+        {
+            GridClasses = new List<GridClass>();
+        }
     }
 }
