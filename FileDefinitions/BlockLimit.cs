@@ -1,10 +1,11 @@
-﻿namespace Ship_Class_System_Config_Editor.FileDefinitions
+﻿using System.Xml.Serialization;
+
+namespace Ship_Class_System_Config_Editor.FileDefinitions
 {
     public class BlockLimit
     {
         public string Name { get; set; }
         public List<BlockType> BlockTypes { get; set; }
-
     }
 
     public class BlockType

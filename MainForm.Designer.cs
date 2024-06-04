@@ -134,6 +134,7 @@
             btnLoadFile = new Button();
             saveFileDialog1 = new SaveFileDialog();
             btnSaveFile = new Button();
+            txtBlockLimitName = new TextBox();
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -960,11 +961,12 @@
             btnAddBlockLimit.TabIndex = 1;
             btnAddBlockLimit.Text = "+";
             btnAddBlockLimit.UseVisualStyleBackColor = true;
+            btnAddBlockLimit.Click += btnAddBlockLimit_Click;
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(576, 519);
+            label27.Location = new Point(678, 517);
             label27.Name = "label27";
             label27.Size = new Size(23, 15);
             label27.TabIndex = 11;
@@ -975,7 +977,7 @@
             groupBox8.Controls.Add(btnRemoveBlockType);
             groupBox8.Controls.Add(btnAddBlockType);
             groupBox8.Controls.Add(lstbx_BlockTypes);
-            groupBox8.Location = new Point(605, 382);
+            groupBox8.Location = new Point(707, 382);
             groupBox8.Name = "groupBox8";
             groupBox8.Size = new Size(172, 302);
             groupBox8.TabIndex = 12;
@@ -1020,7 +1022,7 @@
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(785, 519);
+            label28.Location = new Point(885, 517);
             label28.Name = "label28";
             label28.Size = new Size(23, 15);
             label28.TabIndex = 13;
@@ -1034,7 +1036,7 @@
             groupBox9.Controls.Add(txtSubTypeId);
             groupBox9.Controls.Add(label29);
             groupBox9.Controls.Add(txtTypeId);
-            groupBox9.Location = new Point(814, 466);
+            groupBox9.Location = new Point(914, 465);
             groupBox9.Name = "groupBox9";
             groupBox9.Size = new Size(220, 118);
             groupBox9.TabIndex = 14;
@@ -1125,11 +1127,20 @@
             btnSaveFile.UseVisualStyleBackColor = true;
             btnSaveFile.Click += btnSaveFile_Click;
             // 
+            // txtBlockLimitName
+            // 
+            txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
+            txtBlockLimitName.Location = new Point(576, 514);
+            txtBlockLimitName.Name = "txtBlockLimitName";
+            txtBlockLimitName.Size = new Size(100, 23);
+            txtBlockLimitName.TabIndex = 17;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1154, 696);
+            Controls.Add(txtBlockLimitName);
             Controls.Add(btnSaveFile);
             Controls.Add(btnLoadFile);
             Controls.Add(groupBox9);
@@ -1285,5 +1296,6 @@
         private Button btnRemoveBlockType;
         private Button btnAddBlockType;
         private BindingSource blockTypeBindingSource;
+        private TextBox txtBlockLimitName;
     }
 }

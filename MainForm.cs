@@ -86,7 +86,7 @@ namespace Ship_Class_System_Config_Editor
         private void lstbx_BlockLimits_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
-            if(selectedLimit == null) return;
+            if (selectedLimit == null) return;
 
             lstbx_BlockTypes.ClearSelected();
             blockTypesBindingSource.DataSource = selectedLimit?.BlockTypes;
@@ -96,7 +96,7 @@ namespace Ship_Class_System_Config_Editor
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedType = (BlockType)lstbx_BlockTypes.SelectedItem;
-            if(selectedType == null) return;
+            if (selectedType == null) return;
 
             selectedBlockTypeBindingSource.DataSource = selectedType ?? new BlockType();
             selectedBlockTypeBindingSource.ResetBindings(false);
@@ -134,7 +134,12 @@ namespace Ship_Class_System_Config_Editor
 
         private void btnRemoveBlockLimit_Click(object sender, EventArgs e)
         {
-            
+            var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            if (selectedLimit == null) return;
+
+            var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
+            selectedGridClass.BlockLimits.Remove(selectedLimit);
+            blockLimitsBindingSource.ResetBindings(false);
         }
 
         private void btn_DeleteClass_Click(object sender, EventArgs e)
@@ -143,6 +148,16 @@ namespace Ship_Class_System_Config_Editor
             gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
             gridClassesBindingSource.ResetBindings(false);
             lstbx_GridClasses.ClearSelected();
+        }
+
+        private void btnAddBlockLimit_Click(object sender, EventArgs e)
+        {
+            var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            if (selectedLimit == null) return;
+
+            var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
+            selectedGridClass.BlockLimits.Add(new BlockLimit { Name = "New Limit", BlockTypes = new List<BlockType>()});
+            blockLimitsBindingSource.ResetBindings(false);
         }
     }
 }
