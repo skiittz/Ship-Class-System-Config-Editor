@@ -156,8 +156,36 @@ namespace Ship_Class_System_Config_Editor
             if (selectedLimit == null) return;
 
             var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
-            selectedGridClass.BlockLimits.Add(new BlockLimit { Name = "New Limit", BlockTypes = new List<BlockType>()});
+            selectedGridClass.BlockLimits.Add(new BlockLimit { Name = "New Limit", BlockTypes = new List<BlockType>() });
             blockLimitsBindingSource.ResetBindings(false);
+        }
+
+        private void btnAddBlockType_Click(object sender, EventArgs e)
+        {
+            var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            if (selectedLimit == null) return;
+
+            selectedLimit.BlockTypes.Add(new BlockType { TypeId = "NewTypeId", SubtypeId = "NewSubTypeId", CountWeight = 1f });
+            blockLimitsBindingSource.ResetBindings(false);
+        }
+
+        private void btnRemoveBlockType_Click(object sender, EventArgs e)
+        {
+            var selectedBlockType = (BlockType)lstbx_BlockTypes.SelectedItem;
+            if (selectedBlockType == null) return;
+
+            blockTypesBindingSource.Remove(selectedBlockType);
+            blockTypesBindingSource.ResetBindings(false);
+        }
+
+        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+        }
+
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
         }
     }
 }

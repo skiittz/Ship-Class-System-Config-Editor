@@ -115,7 +115,6 @@
             groupBox7 = new GroupBox();
             btnRemoveBlockLimit = new Button();
             btnAddBlockLimit = new Button();
-            label27 = new Label();
             groupBox8 = new GroupBox();
             btnRemoveBlockType = new Button();
             btnAddBlockType = new Button();
@@ -131,10 +130,12 @@
             label29 = new Label();
             txtTypeId = new TextBox();
             openFileDialog1 = new OpenFileDialog();
-            btnLoadFile = new Button();
             saveFileDialog1 = new SaveFileDialog();
-            btnSaveFile = new Button();
             txtBlockLimitName = new TextBox();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            loadFileToolStripMenuItem = new ToolStripMenuItem();
+            saveFileToolStripMenuItem = new ToolStripMenuItem();
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -160,6 +161,7 @@
             ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).BeginInit();
             groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // chkBox_IncludeAiFactions
@@ -237,7 +239,7 @@
             grpbx_Factions.Controls.Add(btn_AddFactionTag);
             grpbx_Factions.Controls.Add(lstBx_IgnoredFactionTags);
             grpbx_Factions.Controls.Add(txtFactionTag);
-            grpbx_Factions.Location = new Point(12, 12);
+            grpbx_Factions.Location = new Point(12, 38);
             grpbx_Factions.Name = "grpbx_Factions";
             grpbx_Factions.Size = new Size(151, 285);
             grpbx_Factions.TabIndex = 6;
@@ -249,7 +251,7 @@
             gpbox_GridClasses.Controls.Add(btn_AddNewClass);
             gpbox_GridClasses.Controls.Add(btn_DeleteClass);
             gpbox_GridClasses.Controls.Add(lstbx_GridClasses);
-            gpbox_GridClasses.Location = new Point(169, 12);
+            gpbox_GridClasses.Location = new Point(169, 38);
             gpbox_GridClasses.Name = "gpbox_GridClasses";
             gpbox_GridClasses.Size = new Size(200, 285);
             gpbox_GridClasses.TabIndex = 7;
@@ -304,7 +306,7 @@
             grpbx_Details.Controls.Add(groupBox2);
             grpbx_Details.Controls.Add(groupBox1);
             grpbx_Details.Controls.Add(grpbx_Broadcasting);
-            grpbx_Details.Location = new Point(375, 12);
+            grpbx_Details.Location = new Point(391, 38);
             grpbx_Details.Name = "grpbx_Details";
             grpbx_Details.Size = new Size(377, 364);
             grpbx_Details.TabIndex = 8;
@@ -592,7 +594,7 @@
             // 
             groupBox4.Controls.Add(groupBox6);
             groupBox4.Controls.Add(groupBox5);
-            groupBox4.Location = new Point(758, 12);
+            groupBox4.Location = new Point(823, 38);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(386, 364);
             groupBox4.TabIndex = 9;
@@ -933,19 +935,20 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(txtBlockLimitName);
             groupBox7.Controls.Add(btnRemoveBlockLimit);
             groupBox7.Controls.Add(btnAddBlockLimit);
             groupBox7.Controls.Add(lstbx_BlockLimits);
-            groupBox7.Location = new Point(375, 382);
+            groupBox7.Location = new Point(12, 329);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(195, 296);
+            groupBox7.Size = new Size(195, 348);
             groupBox7.TabIndex = 10;
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
             // 
             // btnRemoveBlockLimit
             // 
-            btnRemoveBlockLimit.Location = new Point(6, 272);
+            btnRemoveBlockLimit.Location = new Point(6, 319);
             btnRemoveBlockLimit.Name = "btnRemoveBlockLimit";
             btnRemoveBlockLimit.Size = new Size(75, 23);
             btnRemoveBlockLimit.TabIndex = 2;
@@ -955,7 +958,7 @@
             // 
             // btnAddBlockLimit
             // 
-            btnAddBlockLimit.Location = new Point(114, 272);
+            btnAddBlockLimit.Location = new Point(114, 319);
             btnAddBlockLimit.Name = "btnAddBlockLimit";
             btnAddBlockLimit.Size = new Size(75, 23);
             btnAddBlockLimit.TabIndex = 1;
@@ -963,44 +966,37 @@
             btnAddBlockLimit.UseVisualStyleBackColor = true;
             btnAddBlockLimit.Click += btnAddBlockLimit_Click;
             // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Location = new Point(678, 517);
-            label27.Name = "label27";
-            label27.Size = new Size(23, 15);
-            label27.TabIndex = 11;
-            label27.Text = ">>";
-            // 
             // groupBox8
             // 
             groupBox8.Controls.Add(btnRemoveBlockType);
             groupBox8.Controls.Add(btnAddBlockType);
             groupBox8.Controls.Add(lstbx_BlockTypes);
-            groupBox8.Location = new Point(707, 382);
+            groupBox8.Location = new Point(213, 329);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(172, 302);
+            groupBox8.Size = new Size(172, 348);
             groupBox8.TabIndex = 12;
             groupBox8.TabStop = false;
             groupBox8.Text = "Block Types";
             // 
             // btnRemoveBlockType
             // 
-            btnRemoveBlockType.Location = new Point(6, 272);
+            btnRemoveBlockType.Location = new Point(6, 319);
             btnRemoveBlockType.Name = "btnRemoveBlockType";
             btnRemoveBlockType.Size = new Size(75, 23);
             btnRemoveBlockType.TabIndex = 17;
             btnRemoveBlockType.Text = "-";
             btnRemoveBlockType.UseVisualStyleBackColor = true;
+            btnRemoveBlockType.Click += btnRemoveBlockType_Click;
             // 
             // btnAddBlockType
             // 
-            btnAddBlockType.Location = new Point(91, 272);
+            btnAddBlockType.Location = new Point(91, 319);
             btnAddBlockType.Name = "btnAddBlockType";
             btnAddBlockType.Size = new Size(75, 23);
             btnAddBlockType.TabIndex = 1;
             btnAddBlockType.Text = "+";
             btnAddBlockType.UseVisualStyleBackColor = true;
+            btnAddBlockType.Click += btnAddBlockType_Click;
             // 
             // lstbx_BlockTypes
             // 
@@ -1022,7 +1018,7 @@
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(885, 517);
+            label28.Location = new Point(380, 494);
             label28.Name = "label28";
             label28.Size = new Size(23, 15);
             label28.TabIndex = 13;
@@ -1036,7 +1032,7 @@
             groupBox9.Controls.Add(txtSubTypeId);
             groupBox9.Controls.Add(label29);
             groupBox9.Controls.Add(txtTypeId);
-            groupBox9.Location = new Point(914, 465);
+            groupBox9.Location = new Point(409, 442);
             groupBox9.Name = "groupBox9";
             groupBox9.Size = new Size(220, 118);
             groupBox9.TabIndex = 14;
@@ -1103,55 +1099,63 @@
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.FileOk += openFileDialog1_FileOk;
             // 
-            // btnLoadFile
-            // 
-            btnLoadFile.Location = new Point(134, 314);
-            btnLoadFile.Name = "btnLoadFile";
-            btnLoadFile.Size = new Size(75, 27);
-            btnLoadFile.TabIndex = 15;
-            btnLoadFile.Text = "Load File";
-            btnLoadFile.UseVisualStyleBackColor = true;
-            btnLoadFile.Click += btnLoadFile_Click;
-            // 
             // saveFileDialog1
             // 
             saveFileDialog1.FileOk += saveFileDialog1_FileOk;
             // 
-            // btnSaveFile
-            // 
-            btnSaveFile.Location = new Point(134, 353);
-            btnSaveFile.Name = "btnSaveFile";
-            btnSaveFile.Size = new Size(75, 23);
-            btnSaveFile.TabIndex = 16;
-            btnSaveFile.Text = "Save File";
-            btnSaveFile.UseVisualStyleBackColor = true;
-            btnSaveFile.Click += btnSaveFile_Click;
-            // 
             // txtBlockLimitName
             // 
             txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
-            txtBlockLimitName.Location = new Point(576, 514);
+            txtBlockLimitName.Location = new Point(6, 272);
             txtBlockLimitName.Name = "txtBlockLimitName";
-            txtBlockLimitName.Size = new Size(100, 23);
+            txtBlockLimitName.Size = new Size(183, 23);
             txtBlockLimitName.TabIndex = 17;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1221, 24);
+            menuStrip1.TabIndex = 18;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { loadFileToolStripMenuItem, saveFileToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // loadFileToolStripMenuItem
+            // 
+            loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            loadFileToolStripMenuItem.Size = new Size(180, 22);
+            loadFileToolStripMenuItem.Text = "Load File";
+            loadFileToolStripMenuItem.Click += loadFileToolStripMenuItem_Click;
+            // 
+            // saveFileToolStripMenuItem
+            // 
+            saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
+            saveFileToolStripMenuItem.Size = new Size(180, 22);
+            saveFileToolStripMenuItem.Text = "Save File";
+            saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1154, 696);
-            Controls.Add(txtBlockLimitName);
-            Controls.Add(btnSaveFile);
-            Controls.Add(btnLoadFile);
+            ClientSize = new Size(1221, 696);
             Controls.Add(groupBox9);
             Controls.Add(label28);
             Controls.Add(groupBox8);
-            Controls.Add(label27);
             Controls.Add(groupBox7);
             Controls.Add(groupBox4);
             Controls.Add(grpbx_Details);
             Controls.Add(gpbox_GridClasses);
             Controls.Add(grpbx_Factions);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).EndInit();
@@ -1181,11 +1185,14 @@
             ((System.ComponentModel.ISupportInitialize)blockLimitBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)blockTypesBindingSource).EndInit();
             groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
             groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).EndInit();
             groupBox9.ResumeLayout(false);
             groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1275,7 +1282,6 @@
         private BindingSource blockTypesBindingSource;
         private BindingSource blockLimitBindingSource;
         private GroupBox groupBox7;
-        private Label label27;
         private GroupBox groupBox8;
         private ListBox lstbx_BlockTypes;
         private Label label28;
@@ -1288,14 +1294,16 @@
         private TextBox txtCountWeight;
         private Label label30;
         private OpenFileDialog openFileDialog1;
-        private Button btnLoadFile;
         private SaveFileDialog saveFileDialog1;
-        private Button btnSaveFile;
         private Button btnRemoveBlockLimit;
         private Button btnAddBlockLimit;
         private Button btnRemoveBlockType;
         private Button btnAddBlockType;
         private BindingSource blockTypeBindingSource;
         private TextBox txtBlockLimitName;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem loadFileToolStripMenuItem;
+        private ToolStripMenuItem saveFileToolStripMenuItem;
     }
 }
