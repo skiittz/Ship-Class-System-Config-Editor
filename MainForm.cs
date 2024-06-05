@@ -153,10 +153,9 @@ namespace Ship_Class_System_Config_Editor
 
         private void btnAddBlockLimit_Click(object sender, EventArgs e)
         {
-            var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
-            if (selectedLimit == null) return;
-
             var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
+            if(selectedGridClass == null) return;
+
             selectedGridClass.BlockLimits.Add(BlockLimit.Default);
             blockLimitsBindingSource.ResetBindings(false);
         }
