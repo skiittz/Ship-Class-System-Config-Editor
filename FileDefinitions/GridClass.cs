@@ -26,5 +26,25 @@
             Modifiers = new UtilModifiers();
             DamageModifiers = new DamageModifiers();
         }
+
+        public static GridClass Default => new GridClass
+        {
+            Name = "New Class",
+            ForceBroadCast = false,
+            ForceBroadCastRange = 0,
+            LargeGridStatic = false,
+            LargeGridMobile = false,
+            SmallGrid = false,
+            MaxBlocks = -1,
+            MaxMass = -1,
+            MaxPCU = -1,
+            MaxPerFaction = -1,
+            MaxPerPlayer = -1,
+            MinBlocks = -1,
+            MinPlayers = -1,
+            Modifiers = UtilModifiers.Default,
+            DamageModifiers = DamageModifiers.Default,
+            BlockLimits = new List<BlockLimit>()
+        };
     }
 }

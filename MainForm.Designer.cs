@@ -113,6 +113,7 @@
             blockLimitBindingSource = new BindingSource(components);
             blockTypesBindingSource = new BindingSource(components);
             groupBox7 = new GroupBox();
+            txtBlockLimitName = new TextBox();
             btnRemoveBlockLimit = new Button();
             btnAddBlockLimit = new Button();
             groupBox8 = new GroupBox();
@@ -131,7 +132,6 @@
             txtTypeId = new TextBox();
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
-            txtBlockLimitName = new TextBox();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             loadFileToolStripMenuItem = new ToolStripMenuItem();
@@ -946,6 +946,14 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
             // 
+            // txtBlockLimitName
+            // 
+            txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
+            txtBlockLimitName.Location = new Point(6, 272);
+            txtBlockLimitName.Name = "txtBlockLimitName";
+            txtBlockLimitName.Size = new Size(183, 23);
+            txtBlockLimitName.TabIndex = 17;
+            // 
             // btnRemoveBlockLimit
             // 
             btnRemoveBlockLimit.Location = new Point(6, 319);
@@ -1103,14 +1111,6 @@
             // 
             saveFileDialog1.FileOk += saveFileDialog1_FileOk;
             // 
-            // txtBlockLimitName
-            // 
-            txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
-            txtBlockLimitName.Location = new Point(6, 272);
-            txtBlockLimitName.Name = "txtBlockLimitName";
-            txtBlockLimitName.Size = new Size(183, 23);
-            txtBlockLimitName.TabIndex = 17;
-            // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
@@ -1130,14 +1130,14 @@
             // loadFileToolStripMenuItem
             // 
             loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            loadFileToolStripMenuItem.Size = new Size(180, 22);
+            loadFileToolStripMenuItem.Size = new Size(121, 22);
             loadFileToolStripMenuItem.Text = "Load File";
             loadFileToolStripMenuItem.Click += loadFileToolStripMenuItem_Click;
             // 
             // saveFileToolStripMenuItem
             // 
             saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            saveFileToolStripMenuItem.Size = new Size(180, 22);
+            saveFileToolStripMenuItem.Size = new Size(121, 22);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 

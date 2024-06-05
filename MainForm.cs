@@ -125,7 +125,8 @@ namespace Ship_Class_System_Config_Editor
         private void btn_AddNewClass_Click(object sender, EventArgs e)
         {
             var newId = currentFile.GridClasses.Any() ? currentFile.GridClasses.OrderByDescending(x => x.Id).First().Id + 1 : 0;
-            var newClass = new GridClass { Name = "New Class", Id = newId };
+            var newClass = GridClass.Default;
+            newClass.Id = newId;
             currentFile.GridClasses.Add(newClass);
 
             gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
@@ -156,7 +157,7 @@ namespace Ship_Class_System_Config_Editor
             if (selectedLimit == null) return;
 
             var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
-            selectedGridClass.BlockLimits.Add(new BlockLimit { Name = "New Limit", BlockTypes = new List<BlockType>() });
+            selectedGridClass.BlockLimits.Add(BlockLimit.Default);
             blockLimitsBindingSource.ResetBindings(false);
         }
 
@@ -165,7 +166,7 @@ namespace Ship_Class_System_Config_Editor
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
             if (selectedLimit == null) return;
 
-            selectedLimit.BlockTypes.Add(new BlockType { TypeId = "NewTypeId", SubtypeId = "NewSubTypeId", CountWeight = 1f });
+            selectedLimit.BlockTypes.Add(BlockType.Default);
             blockLimitsBindingSource.ResetBindings(false);
         }
 

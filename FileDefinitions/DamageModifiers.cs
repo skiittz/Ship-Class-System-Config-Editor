@@ -8,5 +8,15 @@
         public float Environment { get; set; }
         public float Energy { get; set; }
         public float Kinetic { get; set; }
+
+        public static DamageModifiers Default => new DamageModifiers
+        {
+            Bullet = 1,
+            Rocket = 1,
+            Explosion = 1,
+            Environment = 1,
+            Energy = 1,
+            Kinetic = 1
+        };
     }
 }
