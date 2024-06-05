@@ -5,11 +5,13 @@ namespace Ship_Class_System_Config_Editor.FileDefinitions
     public class BlockLimit
     {
         public string Name { get; set; }
+        public int MaxCount { get; set; }
         public List<BlockType> BlockTypes { get; set; }
 
         public static BlockLimit Default => new BlockLimit
         {
             Name = "New Limit",
+            MaxCount = 0,
             BlockTypes = new List<BlockType>()
         };
     }

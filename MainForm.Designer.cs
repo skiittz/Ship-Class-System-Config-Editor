@@ -136,6 +136,8 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             loadFileToolStripMenuItem = new ToolStripMenuItem();
             saveFileToolStripMenuItem = new ToolStripMenuItem();
+            txtMaxCount = new TextBox();
+            label27 = new Label();
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -935,6 +937,8 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(label27);
+            groupBox7.Controls.Add(txtMaxCount);
             groupBox7.Controls.Add(txtBlockLimitName);
             groupBox7.Controls.Add(btnRemoveBlockLimit);
             groupBox7.Controls.Add(btnAddBlockLimit);
@@ -949,7 +953,7 @@
             // txtBlockLimitName
             // 
             txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
-            txtBlockLimitName.Location = new Point(6, 272);
+            txtBlockLimitName.Location = new Point(6, 261);
             txtBlockLimitName.Name = "txtBlockLimitName";
             txtBlockLimitName.Size = new Size(183, 23);
             txtBlockLimitName.TabIndex = 17;
@@ -1141,6 +1145,23 @@
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
+            // txtMaxCount
+            // 
+            txtMaxCount.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "MaxCount", true));
+            txtMaxCount.Location = new Point(79, 290);
+            txtMaxCount.Name = "txtMaxCount";
+            txtMaxCount.Size = new Size(110, 23);
+            txtMaxCount.TabIndex = 19;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(6, 293);
+            label27.Name = "label27";
+            label27.Size = new Size(69, 15);
+            label27.TabIndex = 19;
+            label27.Text = "Max Count:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1305,5 +1326,7 @@
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem loadFileToolStripMenuItem;
         private ToolStripMenuItem saveFileToolStripMenuItem;
+        private TextBox txtMaxCount;
+        private Label label27;
     }
 }
