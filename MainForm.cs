@@ -102,19 +102,9 @@ namespace Ship_Class_System_Config_Editor
             selectedBlockTypeBindingSource.ResetBindings(false);
         }
 
-        private void btnLoadFile_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-        }
-
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             LoadConfig(openFileDialog1.FileName);
-        }
-
-        private void btnSaveFile_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.ShowDialog();
         }
 
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -141,6 +131,7 @@ namespace Ship_Class_System_Config_Editor
             var selectedGridClass = (GridClass)lstbx_GridClasses.SelectedItem;
             selectedGridClass.BlockLimits.Remove(selectedLimit);
             blockLimitsBindingSource.ResetBindings(false);
+            lstbx_BlockLimits.ClearSelected();
         }
 
         private void btn_DeleteClass_Click(object sender, EventArgs e)
@@ -176,6 +167,8 @@ namespace Ship_Class_System_Config_Editor
 
             blockTypesBindingSource.Remove(selectedBlockType);
             blockTypesBindingSource.ResetBindings(false);
+
+            lstbx_BlockTypes.ClearSelected();
         }
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
