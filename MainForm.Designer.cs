@@ -113,6 +113,8 @@
             blockLimitBindingSource = new BindingSource(components);
             blockTypesBindingSource = new BindingSource(components);
             groupBox7 = new GroupBox();
+            label27 = new Label();
+            txtMaxCount = new TextBox();
             txtBlockLimitName = new TextBox();
             btnRemoveBlockLimit = new Button();
             btnAddBlockLimit = new Button();
@@ -136,8 +138,6 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             loadFileToolStripMenuItem = new ToolStripMenuItem();
             saveFileToolStripMenuItem = new ToolStripMenuItem();
-            txtMaxCount = new TextBox();
-            label27 = new Label();
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -656,6 +656,7 @@
             // 
             // txtEnergy
             // 
+            txtEnergy.DataBindings.Add(new Binding("Text", selectedClassDamageModifiersBindingSource, "Energy", true));
             txtEnergy.Location = new Point(198, 48);
             txtEnergy.Name = "txtEnergy";
             txtEnergy.Size = new Size(31, 23);
@@ -950,6 +951,23 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(6, 293);
+            label27.Name = "label27";
+            label27.Size = new Size(69, 15);
+            label27.TabIndex = 19;
+            label27.Text = "Max Count:";
+            // 
+            // txtMaxCount
+            // 
+            txtMaxCount.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "MaxCount", true));
+            txtMaxCount.Location = new Point(79, 290);
+            txtMaxCount.Name = "txtMaxCount";
+            txtMaxCount.Size = new Size(110, 23);
+            txtMaxCount.TabIndex = 19;
+            // 
             // txtBlockLimitName
             // 
             txtBlockLimitName.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "Name", true));
@@ -1144,23 +1162,6 @@
             saveFileToolStripMenuItem.Size = new Size(121, 22);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
-            // 
-            // txtMaxCount
-            // 
-            txtMaxCount.DataBindings.Add(new Binding("Text", blockLimitsBindingSource, "MaxCount", true));
-            txtMaxCount.Location = new Point(79, 290);
-            txtMaxCount.Name = "txtMaxCount";
-            txtMaxCount.Size = new Size(110, 23);
-            txtMaxCount.TabIndex = 19;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Location = new Point(6, 293);
-            label27.Name = "label27";
-            label27.Size = new Size(69, 15);
-            label27.TabIndex = 19;
-            label27.Text = "Max Count:";
             // 
             // MainForm
             // 
