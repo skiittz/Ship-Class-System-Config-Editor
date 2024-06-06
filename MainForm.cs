@@ -43,6 +43,7 @@ namespace Ship_Class_System_Config_Editor
             w.Serialize(sw, currentFile);
             sw.Close();
             fs.Close();
+            currentFile.GridClasses.Add(defaultClass);
         }
 
         private void LstBx_IgnoredFactionTags_SelectedIndexChanged(object sender, EventArgs e)
