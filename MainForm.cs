@@ -163,13 +163,27 @@ namespace Ship_Class_System_Config_Editor
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
             if (selectedLimit == null) return;
 
-            selectedLimit.BlockTypes.Add(BlockType.Default);
+            var newBlockType = BlockType.Default;
+            int i = 0;
+            while (selectedLimit.BlockTypes.Any(x => x.CombinedName == newBlockType.CombinedName))
+            {
+                i++;
+                if (newBlockType.TypeId.Contains($"({i - 1})"))
+                    newBlockType.TypeId = newBlockType.TypeId.Replace($"({i - 1})", $"({i})");
+                else newBlockType.TypeId = $"({i}){newBlockType.TypeId}";
+            }
+            selectedLimit.BlockTypes.Add(newBlockType);
             blockLimitsBindingSource.ResetBindings(false);
+            blockTypesBindingSource.ResetBindings(false);
+            lstbx_BlockLimits_SelectedIndexChanged(sender, e);
         }
 
         private void btnRemoveBlockType_Click(object sender, EventArgs e)
         {
-            var selectedBlockType = (BlockType)lstbx_BlockTypes.SelectedItem;
+            var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            if (selectedLimit == null) return;
+
+            var selectedBlockType = selectedLimit.BlockTypes.Single(x => x.CombinedName == lstbx_BlockTypes.SelectedItem.ToString());
             if (selectedBlockType == null) return;
 
             blockTypesBindingSource.Remove(selectedBlockType);
