@@ -308,7 +308,7 @@
             grpbx_Details.Controls.Add(groupBox2);
             grpbx_Details.Controls.Add(groupBox1);
             grpbx_Details.Controls.Add(grpbx_Broadcasting);
-            grpbx_Details.Location = new Point(391, 38);
+            grpbx_Details.Location = new Point(440, 38);
             grpbx_Details.Name = "grpbx_Details";
             grpbx_Details.Size = new Size(377, 364);
             grpbx_Details.TabIndex = 8;
@@ -1003,7 +1003,7 @@
             groupBox8.Controls.Add(lstbx_BlockTypes);
             groupBox8.Location = new Point(213, 329);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(172, 348);
+            groupBox8.Size = new Size(221, 348);
             groupBox8.TabIndex = 12;
             groupBox8.TabStop = false;
             groupBox8.Text = "Block Types";
@@ -1036,7 +1036,7 @@
             lstbx_BlockTypes.ItemHeight = 15;
             lstbx_BlockTypes.Location = new Point(6, 22);
             lstbx_BlockTypes.Name = "lstbx_BlockTypes";
-            lstbx_BlockTypes.Size = new Size(160, 244);
+            lstbx_BlockTypes.Size = new Size(209, 244);
             lstbx_BlockTypes.TabIndex = 0;
             lstbx_BlockTypes.SelectedIndexChanged += lstbx_BlockTypes_SelectedIndexChanged;
             // 
@@ -1047,7 +1047,7 @@
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(380, 494);
+            label28.Location = new Point(438, 487);
             label28.Name = "label28";
             label28.Size = new Size(23, 15);
             label28.TabIndex = 13;
@@ -1061,7 +1061,7 @@
             groupBox9.Controls.Add(txtSubTypeId);
             groupBox9.Controls.Add(label29);
             groupBox9.Controls.Add(txtTypeId);
-            groupBox9.Location = new Point(409, 442);
+            groupBox9.Location = new Point(467, 435);
             groupBox9.Name = "groupBox9";
             groupBox9.Size = new Size(220, 118);
             groupBox9.TabIndex = 14;

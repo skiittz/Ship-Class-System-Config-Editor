@@ -98,11 +98,14 @@ namespace Ship_Class_System_Config_Editor
 
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedType = ((BlockLimit)lstbx_BlockLimits.SelectedItem)
-                .BlockTypes.SingleOrDefault(x => x.CombinedName == lstbx_BlockTypes.SelectedItem);
+            if(lstbx_BlockLimits.SelectedItem == null) return;
+            var selectedLimit = ((BlockLimit)lstbx_BlockLimits.SelectedItem);
+            var selectedType = selectedLimit
+                .BlockTypes
+                .SingleOrDefault(x => x.CombinedName == lstbx_BlockTypes.SelectedItem.ToString());
             if (selectedType == null) return;
 
-            selectedBlockTypeBindingSource.DataSource = selectedType ?? new BlockType();
+            selectedBlockTypeBindingSource.DataSource = selectedType;
             selectedBlockTypeBindingSource.ResetBindings(false);
         }
 
