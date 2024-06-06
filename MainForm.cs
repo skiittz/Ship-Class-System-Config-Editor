@@ -8,8 +8,8 @@ namespace Ship_Class_System_Config_Editor
     public partial class MainForm : Form
     {
         private ModConfig currentFile => (ModConfig)modConfigBindingSource.DataSource;
-        //private List<string> classNames => currentFile.GridClasses.OrderBy(x => x.Id).Select(x => x.Name).ToList();
         static Encoding encoding => Encoding.GetEncoding("UTF-16");
+        private List<string> blockTypeNames = new List<string>();
         public MainForm()
         {
             InitializeComponent();
@@ -88,6 +88,9 @@ namespace Ship_Class_System_Config_Editor
             var selectedLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
             if (selectedLimit == null) return;
 
+            lstbx_BlockTypes.Items.Clear();
+            lstbx_BlockTypes.Items.AddRange(selectedLimit.BlockTypes.Select(x => x.CombinedName).ToArray());
+
             blockTypesBindingSource.DataSource = selectedLimit?.BlockTypes;
             blockTypesBindingSource.ResetBindings(false);
             lstbx_BlockTypes.ClearSelected();
@@ -95,7 +98,8 @@ namespace Ship_Class_System_Config_Editor
 
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedType = (BlockType)lstbx_BlockTypes.SelectedItem;
+            var selectedType = ((BlockLimit)lstbx_BlockLimits.SelectedItem)
+                .BlockTypes.SingleOrDefault(x => x.CombinedName == lstbx_BlockTypes.SelectedItem);
             if (selectedType == null) return;
 
             selectedBlockTypeBindingSource.DataSource = selectedType ?? new BlockType();

@@ -1030,9 +1030,8 @@
             // 
             // lstbx_BlockTypes
             // 
+            lstbx_BlockTypes.Cursor = Cursors.IBeam;
             lstbx_BlockTypes.DataBindings.Add(new Binding("DataContext", blockTypeBindingSource, "SubtypeId", true));
-            lstbx_BlockTypes.DataSource = blockTypesBindingSource;
-            lstbx_BlockTypes.DisplayMember = "SubtypeId";
             lstbx_BlockTypes.FormattingEnabled = true;
             lstbx_BlockTypes.ItemHeight = 15;
             lstbx_BlockTypes.Location = new Point(6, 22);

@@ -21,6 +21,7 @@ namespace Ship_Class_System_Config_Editor.FileDefinitions
         public string TypeId { get; set; }
         public string SubtypeId { get; set; }
         public float CountWeight { get; set; }
+        public string CombinedName => $"{TypeId}/{SubtypeId}";
 
         public static BlockType Default => new BlockType
         {
