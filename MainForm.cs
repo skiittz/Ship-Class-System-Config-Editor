@@ -81,6 +81,7 @@ namespace Ship_Class_System_Config_Editor
 
             lstbx_BlockLimits.ClearSelected();
             lstbx_BlockTypes.ClearSelected();
+            lstbx_BlockTypes.Items.Clear();
         }
 
         private void lstbx_BlockLimits_SelectedIndexChanged(object sender, EventArgs e)
