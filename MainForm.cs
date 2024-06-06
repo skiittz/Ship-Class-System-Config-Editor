@@ -98,7 +98,7 @@ namespace Ship_Class_System_Config_Editor
 
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstbx_BlockLimits.SelectedItem == null) return;
+            if(lstbx_BlockLimits.SelectedItem == null || lstbx_BlockTypes.SelectedItem == null) return;
             var selectedLimit = ((BlockLimit)lstbx_BlockLimits.SelectedItem);
             var selectedType = selectedLimit
                 .BlockTypes
