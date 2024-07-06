@@ -90,10 +90,18 @@
             label21 = new Label();
             txtBullet = new TextBox();
             groupBox5 = new GroupBox();
+            label37 = new Label();
+            label36 = new Label();
+            txtBoostCooldown = new TextBox();
+            selectedClassUtilModifiersBindingSource = new BindingSource(components);
+            txtBoostDuration = new TextBox();
+            txtShipClassBoost = new TextBox();
+            label35 = new Label();
+            txtShipClassMaxSpeed = new TextBox();
+            label34 = new Label();
             label20 = new Label();
             label19 = new Label();
             txtThrusterForce = new TextBox();
-            selectedClassUtilModifiersBindingSource = new BindingSource(components);
             txtThrusterEfficiency = new TextBox();
             label18 = new Label();
             txtRefineSpeed = new TextBox();
@@ -138,6 +146,29 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             loadFileToolStripMenuItem = new ToolStripMenuItem();
             saveFileToolStripMenuItem = new ToolStripMenuItem();
+            groupBox10 = new GroupBox();
+            txtGlobalMaxSpeed = new TextBox();
+            label33 = new Label();
+            txtModVersion = new TextBox();
+            label32 = new Label();
+            groupBox11 = new GroupBox();
+            groupBox12 = new GroupBox();
+            lstBx_AllowedClasses = new ListBox();
+            btnAddNoFlyZone = new Button();
+            btnRemoveNoFlyZone = new Button();
+            txtRadius = new TextBox();
+            noFlyZonesBindingSource = new BindingSource(components);
+            label42 = new Label();
+            label41 = new Label();
+            txt_ZCoord = new TextBox();
+            label40 = new Label();
+            txt_YCoord = new TextBox();
+            label39 = new Label();
+            txt_XCoord = new TextBox();
+            label38 = new Label();
+            txtId = new TextBox();
+            lstNoFlyZones = new ListBox();
+            zoneBindingSource = new BindingSource(components);
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -164,6 +195,11 @@
             groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).BeginInit();
             menuStrip1.SuspendLayout();
+            groupBox10.SuspendLayout();
+            groupBox11.SuspendLayout();
+            groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)noFlyZonesBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)zoneBindingSource).BeginInit();
             SuspendLayout();
             // 
             // chkBox_IncludeAiFactions
@@ -227,7 +263,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(0, 44);
+            label1.Location = new Point(12, 44);
             label1.Name = "label1";
             label1.Size = new Size(116, 15);
             label1.TabIndex = 5;
@@ -241,7 +277,7 @@
             grpbx_Factions.Controls.Add(btn_AddFactionTag);
             grpbx_Factions.Controls.Add(lstBx_IgnoredFactionTags);
             grpbx_Factions.Controls.Add(txtFactionTag);
-            grpbx_Factions.Location = new Point(12, 38);
+            grpbx_Factions.Location = new Point(157, 27);
             grpbx_Factions.Name = "grpbx_Factions";
             grpbx_Factions.Size = new Size(151, 285);
             grpbx_Factions.TabIndex = 6;
@@ -253,7 +289,7 @@
             gpbox_GridClasses.Controls.Add(btn_AddNewClass);
             gpbox_GridClasses.Controls.Add(btn_DeleteClass);
             gpbox_GridClasses.Controls.Add(lstbx_GridClasses);
-            gpbox_GridClasses.Location = new Point(169, 38);
+            gpbox_GridClasses.Location = new Point(325, 35);
             gpbox_GridClasses.Name = "gpbox_GridClasses";
             gpbox_GridClasses.Size = new Size(200, 285);
             gpbox_GridClasses.TabIndex = 7;
@@ -308,7 +344,7 @@
             grpbx_Details.Controls.Add(groupBox2);
             grpbx_Details.Controls.Add(groupBox1);
             grpbx_Details.Controls.Add(grpbx_Broadcasting);
-            grpbx_Details.Location = new Point(555, 38);
+            grpbx_Details.Location = new Point(520, 27);
             grpbx_Details.Name = "grpbx_Details";
             grpbx_Details.Size = new Size(377, 364);
             grpbx_Details.TabIndex = 8;
@@ -596,7 +632,7 @@
             // 
             groupBox4.Controls.Add(groupBox6);
             groupBox4.Controls.Add(groupBox5);
-            groupBox4.Location = new Point(938, 38);
+            groupBox4.Location = new Point(903, 27);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(386, 364);
             groupBox4.TabIndex = 9;
@@ -617,7 +653,7 @@
             groupBox6.Controls.Add(txtRocket);
             groupBox6.Controls.Add(label21);
             groupBox6.Controls.Add(txtBullet);
-            groupBox6.Location = new Point(67, 217);
+            groupBox6.Location = new Point(67, 244);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(248, 111);
             groupBox6.TabIndex = 3;
@@ -732,6 +768,14 @@
             // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(label37);
+            groupBox5.Controls.Add(label36);
+            groupBox5.Controls.Add(txtBoostCooldown);
+            groupBox5.Controls.Add(txtBoostDuration);
+            groupBox5.Controls.Add(txtShipClassBoost);
+            groupBox5.Controls.Add(label35);
+            groupBox5.Controls.Add(txtShipClassMaxSpeed);
+            groupBox5.Controls.Add(label34);
             groupBox5.Controls.Add(label20);
             groupBox5.Controls.Add(label19);
             groupBox5.Controls.Add(txtThrusterForce);
@@ -752,10 +796,82 @@
             groupBox5.Controls.Add(txtAssemblerSpeed);
             groupBox5.Location = new Point(6, 22);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(370, 163);
+            groupBox5.Size = new Size(370, 223);
             groupBox5.TabIndex = 2;
             groupBox5.TabStop = false;
             groupBox5.Text = "Utility Modifiers";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(180, 190);
+            label37.Name = "label37";
+            label37.Size = new Size(98, 15);
+            label37.TabIndex = 20;
+            label37.Text = "Boost Cooldown:";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new Point(39, 190);
+            label36.Name = "label36";
+            label36.Size = new Size(89, 15);
+            label36.TabIndex = 20;
+            label36.Text = "Boost Duration:";
+            // 
+            // txtBoostCooldown
+            // 
+            txtBoostCooldown.DataBindings.Add(new Binding("Text", selectedClassUtilModifiersBindingSource, "BoostCoolDown", true));
+            txtBoostCooldown.Location = new Point(284, 187);
+            txtBoostCooldown.Name = "txtBoostCooldown";
+            txtBoostCooldown.Size = new Size(33, 23);
+            txtBoostCooldown.TabIndex = 20;
+            // 
+            // selectedClassUtilModifiersBindingSource
+            // 
+            selectedClassUtilModifiersBindingSource.DataSource = typeof(FileDefinitions.UtilModifiers);
+            // 
+            // txtBoostDuration
+            // 
+            txtBoostDuration.DataBindings.Add(new Binding("Text", selectedClassUtilModifiersBindingSource, "BoostDuration", true));
+            txtBoostDuration.Location = new Point(134, 187);
+            txtBoostDuration.Name = "txtBoostDuration";
+            txtBoostDuration.Size = new Size(31, 23);
+            txtBoostDuration.TabIndex = 20;
+            // 
+            // txtShipClassBoost
+            // 
+            txtShipClassBoost.DataBindings.Add(new Binding("Text", selectedClassUtilModifiersBindingSource, "MaxBoost", true));
+            txtShipClassBoost.Location = new Point(133, 159);
+            txtShipClassBoost.Name = "txtShipClassBoost";
+            txtShipClassBoost.Size = new Size(32, 23);
+            txtShipClassBoost.TabIndex = 20;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(61, 162);
+            label35.Name = "label35";
+            label35.Size = new Size(66, 15);
+            label35.TabIndex = 20;
+            label35.Text = "Max Boost:";
+            // 
+            // txtShipClassMaxSpeed
+            // 
+            txtShipClassMaxSpeed.DataBindings.Add(new Binding("Text", selectedClassUtilModifiersBindingSource, "MaxSpeed", true));
+            txtShipClassMaxSpeed.Location = new Point(134, 130);
+            txtShipClassMaxSpeed.Name = "txtShipClassMaxSpeed";
+            txtShipClassMaxSpeed.Size = new Size(31, 23);
+            txtShipClassMaxSpeed.TabIndex = 20;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(63, 133);
+            label34.Name = "label34";
+            label34.Size = new Size(68, 15);
+            label34.TabIndex = 21;
+            label34.Text = "Max Speed:";
             // 
             // label20
             // 
@@ -782,10 +898,6 @@
             txtThrusterForce.Name = "txtThrusterForce";
             txtThrusterForce.Size = new Size(31, 23);
             txtThrusterForce.TabIndex = 3;
-            // 
-            // selectedClassUtilModifiersBindingSource
-            // 
-            selectedClassUtilModifiersBindingSource.DataSource = typeof(FileDefinitions.UtilModifiers);
             // 
             // txtThrusterEfficiency
             // 
@@ -944,7 +1056,7 @@
             groupBox7.Controls.Add(btnRemoveBlockLimit);
             groupBox7.Controls.Add(btnAddBlockLimit);
             groupBox7.Controls.Add(lstbx_BlockLimits);
-            groupBox7.Location = new Point(12, 329);
+            groupBox7.Location = new Point(525, 400);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(195, 348);
             groupBox7.TabIndex = 10;
@@ -1001,7 +1113,7 @@
             groupBox8.Controls.Add(btnRemoveBlockType);
             groupBox8.Controls.Add(btnAddBlockType);
             groupBox8.Controls.Add(lstbx_BlockTypes);
-            groupBox8.Location = new Point(213, 329);
+            groupBox8.Location = new Point(727, 400);
             groupBox8.Name = "groupBox8";
             groupBox8.Size = new Size(307, 348);
             groupBox8.TabIndex = 12;
@@ -1047,7 +1159,7 @@
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(526, 485);
+            label28.Location = new Point(1051, 543);
             label28.Name = "label28";
             label28.Size = new Size(23, 15);
             label28.TabIndex = 13;
@@ -1061,7 +1173,7 @@
             groupBox9.Controls.Add(txtSubTypeId);
             groupBox9.Controls.Add(label29);
             groupBox9.Controls.Add(txtTypeId);
-            groupBox9.Location = new Point(555, 433);
+            groupBox9.Location = new Point(1084, 491);
             groupBox9.Name = "groupBox9";
             groupBox9.Size = new Size(220, 118);
             groupBox9.TabIndex = 14;
@@ -1162,11 +1274,230 @@
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
+            // groupBox10
+            // 
+            groupBox10.Controls.Add(txtGlobalMaxSpeed);
+            groupBox10.Controls.Add(label33);
+            groupBox10.Controls.Add(txtModVersion);
+            groupBox10.Controls.Add(label32);
+            groupBox10.Location = new Point(12, 27);
+            groupBox10.Name = "groupBox10";
+            groupBox10.Size = new Size(139, 75);
+            groupBox10.TabIndex = 19;
+            groupBox10.TabStop = false;
+            groupBox10.Text = "Global";
+            // 
+            // txtGlobalMaxSpeed
+            // 
+            txtGlobalMaxSpeed.DataBindings.Add(new Binding("Text", modConfigBindingSource, "MaxPossibleSpeedMetersPerSecond", true));
+            txtGlobalMaxSpeed.Location = new Point(71, 41);
+            txtGlobalMaxSpeed.Name = "txtGlobalMaxSpeed";
+            txtGlobalMaxSpeed.Size = new Size(62, 23);
+            txtGlobalMaxSpeed.TabIndex = 20;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(6, 44);
+            label33.Name = "label33";
+            label33.Size = new Size(65, 15);
+            label33.TabIndex = 20;
+            label33.Text = "Max Speed";
+            // 
+            // txtModVersion
+            // 
+            txtModVersion.DataBindings.Add(new Binding("Text", modConfigBindingSource, "Version", true));
+            txtModVersion.Location = new Point(71, 16);
+            txtModVersion.Name = "txtModVersion";
+            txtModVersion.Size = new Size(62, 23);
+            txtModVersion.TabIndex = 20;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(6, 19);
+            label32.Name = "label32";
+            label32.Size = new Size(45, 15);
+            label32.TabIndex = 20;
+            label32.Text = "Version";
+            // 
+            // groupBox11
+            // 
+            groupBox11.Controls.Add(groupBox12);
+            groupBox11.Controls.Add(btnAddNoFlyZone);
+            groupBox11.Controls.Add(btnRemoveNoFlyZone);
+            groupBox11.Controls.Add(txtRadius);
+            groupBox11.Controls.Add(label42);
+            groupBox11.Controls.Add(label41);
+            groupBox11.Controls.Add(txt_ZCoord);
+            groupBox11.Controls.Add(label40);
+            groupBox11.Controls.Add(txt_YCoord);
+            groupBox11.Controls.Add(label39);
+            groupBox11.Controls.Add(txt_XCoord);
+            groupBox11.Controls.Add(label38);
+            groupBox11.Controls.Add(txtId);
+            groupBox11.Controls.Add(lstNoFlyZones);
+            groupBox11.Location = new Point(163, 400);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Size = new Size(357, 348);
+            groupBox11.TabIndex = 20;
+            groupBox11.TabStop = false;
+            groupBox11.Text = "No Fly Zones";
+            // 
+            // groupBox12
+            // 
+            groupBox12.Controls.Add(lstBx_AllowedClasses);
+            groupBox12.Location = new Point(139, 16);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Size = new Size(218, 323);
+            groupBox12.TabIndex = 23;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "Allowed Classes";
+            // 
+            // lstBx_AllowedClasses
+            // 
+            lstBx_AllowedClasses.FormattingEnabled = true;
+            lstBx_AllowedClasses.ItemHeight = 15;
+            lstBx_AllowedClasses.Location = new Point(6, 16);
+            lstBx_AllowedClasses.Name = "lstBx_AllowedClasses";
+            lstBx_AllowedClasses.SelectionMode = SelectionMode.MultiExtended;
+            lstBx_AllowedClasses.Size = new Size(206, 304);
+            lstBx_AllowedClasses.TabIndex = 0;
+            lstBx_AllowedClasses.MouseCaptureChanged += lstBx_AllowedClasses_MouseCaptureChanged;
+            // 
+            // btnAddNoFlyZone
+            // 
+            btnAddNoFlyZone.Location = new Point(92, 176);
+            btnAddNoFlyZone.Name = "btnAddNoFlyZone";
+            btnAddNoFlyZone.Size = new Size(41, 24);
+            btnAddNoFlyZone.TabIndex = 21;
+            btnAddNoFlyZone.Text = "+";
+            btnAddNoFlyZone.UseVisualStyleBackColor = true;
+            btnAddNoFlyZone.Click += btnAddNoFlyZone_Click;
+            // 
+            // btnRemoveNoFlyZone
+            // 
+            btnRemoveNoFlyZone.Location = new Point(3, 176);
+            btnRemoveNoFlyZone.Name = "btnRemoveNoFlyZone";
+            btnRemoveNoFlyZone.Size = new Size(40, 23);
+            btnRemoveNoFlyZone.TabIndex = 21;
+            btnRemoveNoFlyZone.Text = "-";
+            btnRemoveNoFlyZone.UseVisualStyleBackColor = true;
+            btnRemoveNoFlyZone.Click += btnRemoveNoFlyZone_Click;
+            // 
+            // txtRadius
+            // 
+            txtRadius.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "Radius", true));
+            txtRadius.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "Radius", true));
+            txtRadius.Location = new Point(55, 316);
+            txtRadius.Name = "txtRadius";
+            txtRadius.Size = new Size(51, 23);
+            txtRadius.TabIndex = 21;
+            // 
+            // noFlyZonesBindingSource
+            // 
+            noFlyZonesBindingSource.DataSource = typeof(FileDefinitions.Zones);
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new Point(4, 319);
+            label42.Name = "label42";
+            label42.Size = new Size(45, 15);
+            label42.TabIndex = 22;
+            label42.Text = "Radius:";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new Point(8, 292);
+            label41.Name = "label41";
+            label41.Size = new Size(17, 15);
+            label41.TabIndex = 21;
+            label41.Text = "Z:";
+            // 
+            // txt_ZCoord
+            // 
+            txt_ZCoord.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "Z", true));
+            txt_ZCoord.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "Z", true));
+            txt_ZCoord.Location = new Point(31, 290);
+            txt_ZCoord.Name = "txt_ZCoord";
+            txt_ZCoord.Size = new Size(26, 23);
+            txt_ZCoord.TabIndex = 21;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new Point(8, 263);
+            label40.Name = "label40";
+            label40.Size = new Size(17, 15);
+            label40.TabIndex = 21;
+            label40.Text = "Y:";
+            // 
+            // txt_YCoord
+            // 
+            txt_YCoord.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "Y", true));
+            txt_YCoord.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "Y", true));
+            txt_YCoord.Location = new Point(31, 260);
+            txt_YCoord.Name = "txt_YCoord";
+            txt_YCoord.Size = new Size(26, 23);
+            txt_YCoord.TabIndex = 21;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(8, 234);
+            label39.Name = "label39";
+            label39.Size = new Size(17, 15);
+            label39.TabIndex = 21;
+            label39.Text = "X:";
+            // 
+            // txt_XCoord
+            // 
+            txt_XCoord.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "X", true));
+            txt_XCoord.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "X", true));
+            txt_XCoord.Location = new Point(31, 231);
+            txt_XCoord.Name = "txt_XCoord";
+            txt_XCoord.Size = new Size(26, 23);
+            txt_XCoord.TabIndex = 21;
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(4, 205);
+            label38.Name = "label38";
+            label38.Size = new Size(21, 15);
+            label38.TabIndex = 21;
+            label38.Text = "ID:";
+            // 
+            // txtId
+            // 
+            txtId.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "Id", true));
+            txtId.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "Id", true));
+            txtId.Location = new Point(31, 202);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(26, 23);
+            txtId.TabIndex = 21;
+            // 
+            // lstNoFlyZones
+            // 
+            lstNoFlyZones.DataSource = noFlyZonesBindingSource;
+            lstNoFlyZones.DisplayMember = "Id";
+            lstNoFlyZones.FormattingEnabled = true;
+            lstNoFlyZones.ItemHeight = 15;
+            lstNoFlyZones.Location = new Point(3, 16);
+            lstNoFlyZones.Name = "lstNoFlyZones";
+            lstNoFlyZones.Size = new Size(130, 154);
+            lstNoFlyZones.TabIndex = 21;
+            lstNoFlyZones.SelectedIndexChanged += lstNoFlyZones_SelectedIndexChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1336, 696);
+            ClientSize = new Size(1336, 829);
+            Controls.Add(groupBox11);
+            Controls.Add(groupBox10);
             Controls.Add(groupBox9);
             Controls.Add(label28);
             Controls.Add(groupBox8);
@@ -1214,6 +1545,13 @@
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            groupBox10.ResumeLayout(false);
+            groupBox10.PerformLayout();
+            groupBox11.ResumeLayout(false);
+            groupBox11.PerformLayout();
+            groupBox12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)noFlyZonesBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)zoneBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1328,5 +1666,36 @@
         private ToolStripMenuItem saveFileToolStripMenuItem;
         private TextBox txtMaxCount;
         private Label label27;
+        private GroupBox groupBox10;
+        private Label label32;
+        private TextBox txtModVersion;
+        private Label label33;
+        private TextBox txtGlobalMaxSpeed;
+        private TextBox txtBoostDuration;
+        private TextBox txtShipClassBoost;
+        private Label label35;
+        private TextBox txtShipClassMaxSpeed;
+        private Label label34;
+        private TextBox txtBoostCooldown;
+        private Label label36;
+        private Label label37;
+        private GroupBox groupBox11;
+        private ListBox lstNoFlyZones;
+        private BindingSource zoneBindingSource;
+        private BindingSource noFlyZonesBindingSource;
+        private Label label38;
+        private TextBox txtId;
+        private TextBox txt_XCoord;
+        private TextBox txtRadius;
+        private Label label42;
+        private Label label41;
+        private TextBox txt_ZCoord;
+        private Label label40;
+        private TextBox txt_YCoord;
+        private Label label39;
+        private Button btnRemoveNoFlyZone;
+        private Button btnAddNoFlyZone;
+        private GroupBox groupBox12;
+        private ListBox lstBx_AllowedClasses;
     }
 }

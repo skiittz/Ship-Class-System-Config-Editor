@@ -2,6 +2,7 @@ using Ship_Class_System_Config_Editor.Definitions;
 using System.Text;
 using System.Xml.Serialization;
 using Ship_Class_System_Config_Editor.FileDefinitions;
+using System.Linq;
 
 namespace Ship_Class_System_Config_Editor
 {
@@ -24,9 +25,13 @@ namespace Ship_Class_System_Config_Editor
         {
             var serializer = new XmlSerializer(typeof(ModConfig));
             using (var reader = new StreamReader(filePath))
+            {
                 modConfigBindingSource.DataSource = (ModConfig)serializer.Deserialize(reader);
+            }
+
             currentFile.GridClasses.Add(currentFile.DefaultGridClass);
             gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
+            noFlyZonesBindingSource.DataSource = currentFile.NoFlyZones;
         }
 
         public void SaveConfig(string filename)
@@ -100,7 +105,7 @@ namespace Ship_Class_System_Config_Editor
 
         private void lstbx_BlockTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstbx_BlockLimits.SelectedItem == null || lstbx_BlockTypes.SelectedItem == null) return;
+            if (lstbx_BlockLimits.SelectedItem == null || lstbx_BlockTypes.SelectedItem == null) return;
             var selectedLimit = ((BlockLimit)lstbx_BlockLimits.SelectedItem);
             var selectedType = selectedLimit
                 .BlockTypes
@@ -202,6 +207,53 @@ namespace Ship_Class_System_Config_Editor
         private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
+        }
+
+        private void btnAddNoFlyZone_Click(object sender, EventArgs e)
+        {
+            var nextId = ((((List<Zones>)noFlyZonesBindingSource.DataSource).MaxBy(x => x.Id)?.Id) ?? -1) + 1;
+            noFlyZonesBindingSource.Add(new Zones { Id = nextId });
+            noFlyZonesBindingSource.ResetBindings(false);
+        }
+
+        private void btnRemoveNoFlyZone_Click(object sender, EventArgs e)
+        {
+            var selectedItem = (Zones)lstNoFlyZones.SelectedItem;
+            noFlyZonesBindingSource.Remove(selectedItem);
+            noFlyZonesBindingSource.ResetBindings(false);
+        }
+
+        private void lstNoFlyZones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstNoFlyZones.SelectedItem == null)
+                return;
+
+            lstBx_AllowedClasses.ClearSelected();
+            lstBx_AllowedClasses.Items.Clear();
+            foreach (var gridclass in currentFile.GridClasses)
+            {
+                lstBx_AllowedClasses.Items.Add(gridclass.Name);
+                var gridClassId = currentFile.GridClasses.Single(x => x.Name == gridclass.Name).Id;
+                var isIncluded = ((Zones)lstNoFlyZones.SelectedItem).AllowedClassesById.Contains(gridClassId);
+                lstBx_AllowedClasses.SetSelected(lstBx_AllowedClasses.Items.Count - 1, isIncluded);
+            }
+        }
+
+        private void lstBx_AllowedClasses_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            var selectedZone = (Zones)lstNoFlyZones.SelectedItem;
+            if (selectedZone == null)
+                return;
+
+            var selectedClasses = lstBx_AllowedClasses.SelectedItems;
+            if (selectedClasses == null)
+            {
+                selectedZone.AllowedClassesById = new List<long>();
+                return;
+            }
+
+            var selectedClassIds = currentFile.GridClasses.Where(x => selectedClasses.Contains(x.Name)).Select(x => (long)x.Id);
+            selectedZone.AllowedClassesById = selectedClassIds.ToList();
         }
     }
 }

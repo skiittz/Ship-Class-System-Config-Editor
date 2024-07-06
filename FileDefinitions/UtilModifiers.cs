@@ -11,7 +11,10 @@
         public float RefineSpeed { get; set; }
         public float ThrusterEfficiency { get; set; }
         public float ThrusterForce { get; set; }
-
+        public float MaxSpeed { get; set; }
+        public float MaxBoost { get; set; }
+        public float BoostDuration { get; set; }
+        public float BoostCoolDown { get; set; }
         public static UtilModifiers Default => new UtilModifiers
         {
             AssemblerSpeed = 1,
@@ -22,7 +25,11 @@
             RefineEfficiency = 1,
             RefineSpeed = 1,
             ThrusterEfficiency = 1,
-            ThrusterForce = 1
+            ThrusterForce = 1,
+            MaxSpeed = 100,
+            MaxBoost = 1.2f,
+            BoostDuration = 10,
+            BoostCoolDown = 60
         };
     }
 }
