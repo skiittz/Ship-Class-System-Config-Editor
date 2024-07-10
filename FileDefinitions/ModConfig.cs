@@ -6,7 +6,6 @@ namespace Ship_Class_System_Config_Editor.Definitions
     [XmlRoot(ElementName = "ModConfig")]
     public class ModConfig
     {
-        public float Version { get; set; }
         public bool DebugMode { get; set; }
         public List<string> IgnoreFactionTags { get; set; }
         public float MaxPossibleSpeedMetersPerSecond { get; set; }

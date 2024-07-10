@@ -121,6 +121,7 @@
             blockLimitBindingSource = new BindingSource(components);
             blockTypesBindingSource = new BindingSource(components);
             groupBox7 = new GroupBox();
+            chkBx_TurnedOffByNoFlyZone = new CheckBox();
             label27 = new Label();
             txtMaxCount = new TextBox();
             txtBlockLimitName = new TextBox();
@@ -149,8 +150,6 @@
             groupBox10 = new GroupBox();
             txtGlobalMaxSpeed = new TextBox();
             label33 = new Label();
-            txtModVersion = new TextBox();
-            label32 = new Label();
             groupBox11 = new GroupBox();
             groupBox12 = new GroupBox();
             lstBx_AllowedClasses = new ListBox();
@@ -1050,6 +1049,7 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(chkBx_TurnedOffByNoFlyZone);
             groupBox7.Controls.Add(label27);
             groupBox7.Controls.Add(txtMaxCount);
             groupBox7.Controls.Add(txtBlockLimitName);
@@ -1058,10 +1058,21 @@
             groupBox7.Controls.Add(lstbx_BlockLimits);
             groupBox7.Location = new Point(525, 400);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(195, 348);
+            groupBox7.Size = new Size(195, 382);
             groupBox7.TabIndex = 10;
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
+            // 
+            // chkBx_TurnedOffByNoFlyZone
+            // 
+            chkBx_TurnedOffByNoFlyZone.AutoSize = true;
+            chkBx_TurnedOffByNoFlyZone.DataBindings.Add(new Binding("CheckState", blockLimitsBindingSource, "TurnedOffByNoFlyZone", true, DataSourceUpdateMode.OnPropertyChanged));
+            chkBx_TurnedOffByNoFlyZone.Location = new Point(7, 319);
+            chkBx_TurnedOffByNoFlyZone.Name = "chkBx_TurnedOffByNoFlyZone";
+            chkBx_TurnedOffByNoFlyZone.Size = new Size(166, 19);
+            chkBx_TurnedOffByNoFlyZone.TabIndex = 20;
+            chkBx_TurnedOffByNoFlyZone.Text = "Turned Off By No Fly Zone";
+            chkBx_TurnedOffByNoFlyZone.UseVisualStyleBackColor = true;
             // 
             // label27
             // 
@@ -1090,7 +1101,7 @@
             // 
             // btnRemoveBlockLimit
             // 
-            btnRemoveBlockLimit.Location = new Point(6, 319);
+            btnRemoveBlockLimit.Location = new Point(6, 353);
             btnRemoveBlockLimit.Name = "btnRemoveBlockLimit";
             btnRemoveBlockLimit.Size = new Size(75, 23);
             btnRemoveBlockLimit.TabIndex = 2;
@@ -1100,7 +1111,7 @@
             // 
             // btnAddBlockLimit
             // 
-            btnAddBlockLimit.Location = new Point(114, 319);
+            btnAddBlockLimit.Location = new Point(114, 353);
             btnAddBlockLimit.Name = "btnAddBlockLimit";
             btnAddBlockLimit.Size = new Size(75, 23);
             btnAddBlockLimit.TabIndex = 1;
@@ -1115,14 +1126,14 @@
             groupBox8.Controls.Add(lstbx_BlockTypes);
             groupBox8.Location = new Point(727, 400);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(307, 348);
+            groupBox8.Size = new Size(307, 382);
             groupBox8.TabIndex = 12;
             groupBox8.TabStop = false;
             groupBox8.Text = "Block Types";
             // 
             // btnRemoveBlockType
             // 
-            btnRemoveBlockType.Location = new Point(6, 319);
+            btnRemoveBlockType.Location = new Point(6, 353);
             btnRemoveBlockType.Name = "btnRemoveBlockType";
             btnRemoveBlockType.Size = new Size(75, 23);
             btnRemoveBlockType.TabIndex = 17;
@@ -1132,7 +1143,7 @@
             // 
             // btnAddBlockType
             // 
-            btnAddBlockType.Location = new Point(226, 319);
+            btnAddBlockType.Location = new Point(226, 353);
             btnAddBlockType.Name = "btnAddBlockType";
             btnAddBlockType.Size = new Size(75, 23);
             btnAddBlockType.TabIndex = 1;
@@ -1278,11 +1289,9 @@
             // 
             groupBox10.Controls.Add(txtGlobalMaxSpeed);
             groupBox10.Controls.Add(label33);
-            groupBox10.Controls.Add(txtModVersion);
-            groupBox10.Controls.Add(label32);
             groupBox10.Location = new Point(12, 27);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(139, 75);
+            groupBox10.Size = new Size(139, 54);
             groupBox10.TabIndex = 19;
             groupBox10.TabStop = false;
             groupBox10.Text = "Global";
@@ -1290,7 +1299,7 @@
             // txtGlobalMaxSpeed
             // 
             txtGlobalMaxSpeed.DataBindings.Add(new Binding("Text", modConfigBindingSource, "MaxPossibleSpeedMetersPerSecond", true));
-            txtGlobalMaxSpeed.Location = new Point(71, 41);
+            txtGlobalMaxSpeed.Location = new Point(71, 16);
             txtGlobalMaxSpeed.Name = "txtGlobalMaxSpeed";
             txtGlobalMaxSpeed.Size = new Size(62, 23);
             txtGlobalMaxSpeed.TabIndex = 20;
@@ -1298,28 +1307,11 @@
             // label33
             // 
             label33.AutoSize = true;
-            label33.Location = new Point(6, 44);
+            label33.Location = new Point(6, 19);
             label33.Name = "label33";
             label33.Size = new Size(65, 15);
             label33.TabIndex = 20;
             label33.Text = "Max Speed";
-            // 
-            // txtModVersion
-            // 
-            txtModVersion.DataBindings.Add(new Binding("Text", modConfigBindingSource, "Version", true));
-            txtModVersion.Location = new Point(71, 16);
-            txtModVersion.Name = "txtModVersion";
-            txtModVersion.Size = new Size(62, 23);
-            txtModVersion.TabIndex = 20;
-            // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.Location = new Point(6, 19);
-            label32.Name = "label32";
-            label32.Size = new Size(45, 15);
-            label32.TabIndex = 20;
-            label32.Text = "Version";
             // 
             // groupBox11
             // 
@@ -1339,7 +1331,7 @@
             groupBox11.Controls.Add(lstNoFlyZones);
             groupBox11.Location = new Point(163, 400);
             groupBox11.Name = "groupBox11";
-            groupBox11.Size = new Size(357, 348);
+            groupBox11.Size = new Size(357, 382);
             groupBox11.TabIndex = 20;
             groupBox11.TabStop = false;
             groupBox11.Text = "No Fly Zones";
@@ -1667,8 +1659,6 @@
         private TextBox txtMaxCount;
         private Label label27;
         private GroupBox groupBox10;
-        private Label label32;
-        private TextBox txtModVersion;
         private Label label33;
         private TextBox txtGlobalMaxSpeed;
         private TextBox txtBoostDuration;
@@ -1697,5 +1687,6 @@
         private Button btnAddNoFlyZone;
         private GroupBox groupBox12;
         private ListBox lstBx_AllowedClasses;
+        private CheckBox chkBx_TurnedOffByNoFlyZone;
     }
 }
