@@ -39,6 +39,7 @@
             label1 = new Label();
             grpbx_Factions = new GroupBox();
             gpbox_GridClasses = new GroupBox();
+            btn_DupGridClass = new Button();
             btn_AddNewClass = new Button();
             btn_DeleteClass = new Button();
             lstbx_GridClasses = new ListBox();
@@ -121,6 +122,8 @@
             blockLimitBindingSource = new BindingSource(components);
             blockTypesBindingSource = new BindingSource(components);
             groupBox7 = new GroupBox();
+            btn_PasteGridClass = new Button();
+            btnCopyGridClass = new Button();
             chkBx_TurnedOffByNoFlyZone = new CheckBox();
             label27 = new Label();
             txtMaxCount = new TextBox();
@@ -285,6 +288,7 @@
             // 
             // gpbox_GridClasses
             // 
+            gpbox_GridClasses.Controls.Add(btn_DupGridClass);
             gpbox_GridClasses.Controls.Add(btn_AddNewClass);
             gpbox_GridClasses.Controls.Add(btn_DeleteClass);
             gpbox_GridClasses.Controls.Add(lstbx_GridClasses);
@@ -295,11 +299,21 @@
             gpbox_GridClasses.TabStop = false;
             gpbox_GridClasses.Text = "GridClasses";
             // 
+            // btn_DupGridClass
+            // 
+            btn_DupGridClass.Location = new Point(61, 252);
+            btn_DupGridClass.Name = "btn_DupGridClass";
+            btn_DupGridClass.Size = new Size(75, 23);
+            btn_DupGridClass.TabIndex = 9;
+            btn_DupGridClass.Text = "Duplicate";
+            btn_DupGridClass.UseVisualStyleBackColor = true;
+            btn_DupGridClass.Click += btn_DupGridClass_Click;
+            // 
             // btn_AddNewClass
             // 
-            btn_AddNewClass.Location = new Point(119, 252);
+            btn_AddNewClass.Location = new Point(141, 252);
             btn_AddNewClass.Name = "btn_AddNewClass";
-            btn_AddNewClass.Size = new Size(75, 23);
+            btn_AddNewClass.Size = new Size(53, 23);
             btn_AddNewClass.TabIndex = 8;
             btn_AddNewClass.Text = "+";
             btn_AddNewClass.UseVisualStyleBackColor = true;
@@ -309,7 +323,7 @@
             // 
             btn_DeleteClass.Location = new Point(6, 252);
             btn_DeleteClass.Name = "btn_DeleteClass";
-            btn_DeleteClass.Size = new Size(75, 23);
+            btn_DeleteClass.Size = new Size(49, 23);
             btn_DeleteClass.TabIndex = 8;
             btn_DeleteClass.Text = "-";
             btn_DeleteClass.UseVisualStyleBackColor = true;
@@ -1049,6 +1063,8 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(btn_PasteGridClass);
+            groupBox7.Controls.Add(btnCopyGridClass);
             groupBox7.Controls.Add(chkBx_TurnedOffByNoFlyZone);
             groupBox7.Controls.Add(label27);
             groupBox7.Controls.Add(txtMaxCount);
@@ -1058,10 +1074,32 @@
             groupBox7.Controls.Add(lstbx_BlockLimits);
             groupBox7.Location = new Point(525, 400);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(195, 382);
+            groupBox7.Size = new Size(195, 417);
             groupBox7.TabIndex = 10;
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
+            // 
+            // btn_PasteGridClass
+            // 
+            btn_PasteGridClass.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_PasteGridClass.Location = new Point(58, 374);
+            btn_PasteGridClass.Name = "btn_PasteGridClass";
+            btn_PasteGridClass.Size = new Size(75, 27);
+            btn_PasteGridClass.TabIndex = 21;
+            btn_PasteGridClass.Text = "Paste";
+            btn_PasteGridClass.UseVisualStyleBackColor = true;
+            btn_PasteGridClass.Click += btn_PasteGridClass_Click;
+            // 
+            // btnCopyGridClass
+            // 
+            btnCopyGridClass.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCopyGridClass.Location = new Point(58, 344);
+            btnCopyGridClass.Name = "btnCopyGridClass";
+            btnCopyGridClass.Size = new Size(75, 24);
+            btnCopyGridClass.TabIndex = 21;
+            btnCopyGridClass.Text = "Copy";
+            btnCopyGridClass.UseVisualStyleBackColor = true;
+            btnCopyGridClass.Click += btnCopyGridClass_Click;
             // 
             // chkBx_TurnedOffByNoFlyZone
             // 
@@ -1101,9 +1139,9 @@
             // 
             // btnRemoveBlockLimit
             // 
-            btnRemoveBlockLimit.Location = new Point(6, 353);
+            btnRemoveBlockLimit.Location = new Point(7, 359);
             btnRemoveBlockLimit.Name = "btnRemoveBlockLimit";
-            btnRemoveBlockLimit.Size = new Size(75, 23);
+            btnRemoveBlockLimit.Size = new Size(31, 23);
             btnRemoveBlockLimit.TabIndex = 2;
             btnRemoveBlockLimit.Text = "-";
             btnRemoveBlockLimit.UseVisualStyleBackColor = true;
@@ -1111,9 +1149,9 @@
             // 
             // btnAddBlockLimit
             // 
-            btnAddBlockLimit.Location = new Point(114, 353);
+            btnAddBlockLimit.Location = new Point(150, 359);
             btnAddBlockLimit.Name = "btnAddBlockLimit";
-            btnAddBlockLimit.Size = new Size(75, 23);
+            btnAddBlockLimit.Size = new Size(39, 23);
             btnAddBlockLimit.TabIndex = 1;
             btnAddBlockLimit.Text = "+";
             btnAddBlockLimit.UseVisualStyleBackColor = true;
@@ -1126,14 +1164,14 @@
             groupBox8.Controls.Add(lstbx_BlockTypes);
             groupBox8.Location = new Point(727, 400);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(307, 382);
+            groupBox8.Size = new Size(307, 417);
             groupBox8.TabIndex = 12;
             groupBox8.TabStop = false;
             groupBox8.Text = "Block Types";
             // 
             // btnRemoveBlockType
             // 
-            btnRemoveBlockType.Location = new Point(6, 353);
+            btnRemoveBlockType.Location = new Point(6, 388);
             btnRemoveBlockType.Name = "btnRemoveBlockType";
             btnRemoveBlockType.Size = new Size(75, 23);
             btnRemoveBlockType.TabIndex = 17;
@@ -1143,7 +1181,7 @@
             // 
             // btnAddBlockType
             // 
-            btnAddBlockType.Location = new Point(226, 353);
+            btnAddBlockType.Location = new Point(226, 388);
             btnAddBlockType.Name = "btnAddBlockType";
             btnAddBlockType.Size = new Size(75, 23);
             btnAddBlockType.TabIndex = 1;
@@ -1331,7 +1369,7 @@
             groupBox11.Controls.Add(lstNoFlyZones);
             groupBox11.Location = new Point(163, 400);
             groupBox11.Name = "groupBox11";
-            groupBox11.Size = new Size(357, 382);
+            groupBox11.Size = new Size(357, 417);
             groupBox11.TabIndex = 20;
             groupBox11.TabStop = false;
             groupBox11.Text = "No Fly Zones";
@@ -1341,7 +1379,7 @@
             groupBox12.Controls.Add(lstBx_AllowedClasses);
             groupBox12.Location = new Point(139, 16);
             groupBox12.Name = "groupBox12";
-            groupBox12.Size = new Size(218, 323);
+            groupBox12.Size = new Size(218, 401);
             groupBox12.TabIndex = 23;
             groupBox12.TabStop = false;
             groupBox12.Text = "Allowed Classes";
@@ -1353,7 +1391,7 @@
             lstBx_AllowedClasses.Location = new Point(6, 16);
             lstBx_AllowedClasses.Name = "lstBx_AllowedClasses";
             lstBx_AllowedClasses.SelectionMode = SelectionMode.MultiExtended;
-            lstBx_AllowedClasses.Size = new Size(206, 304);
+            lstBx_AllowedClasses.Size = new Size(206, 379);
             lstBx_AllowedClasses.TabIndex = 0;
             lstBx_AllowedClasses.MouseCaptureChanged += lstBx_AllowedClasses_MouseCaptureChanged;
             // 
@@ -1381,7 +1419,7 @@
             // 
             txtRadius.DataBindings.Add(new Binding("DataContext", noFlyZonesBindingSource, "Radius", true));
             txtRadius.DataBindings.Add(new Binding("Text", noFlyZonesBindingSource, "Radius", true));
-            txtRadius.Location = new Point(55, 316);
+            txtRadius.Location = new Point(54, 341);
             txtRadius.Name = "txtRadius";
             txtRadius.Size = new Size(51, 23);
             txtRadius.TabIndex = 21;
@@ -1393,7 +1431,7 @@
             // label42
             // 
             label42.AutoSize = true;
-            label42.Location = new Point(4, 319);
+            label42.Location = new Point(3, 344);
             label42.Name = "label42";
             label42.Size = new Size(45, 15);
             label42.TabIndex = 22;
@@ -1688,5 +1726,8 @@
         private GroupBox groupBox12;
         private ListBox lstBx_AllowedClasses;
         private CheckBox chkBx_TurnedOffByNoFlyZone;
+        private Button btn_DupGridClass;
+        private Button btnCopyGridClass;
+        private Button btn_PasteGridClass;
     }
 }

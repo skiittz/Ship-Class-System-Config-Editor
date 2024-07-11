@@ -46,5 +46,15 @@
             DamageModifiers = DamageModifiers.Default,
             BlockLimits = new List<BlockLimit>()
         };
+
+        public GridClass CloneToId(int newId)
+        {
+            var newObj = (GridClass)this.MemberwiseClone();
+            newObj.Id = newId;
+            newObj.Modifiers = (UtilModifiers)this.Modifiers.Clone();
+            newObj.DamageModifiers = (DamageModifiers)this.DamageModifiers.Clone();
+            newObj.BlockLimits = this.BlockLimits.Clone();
+            return newObj;
+        }
     }
 }

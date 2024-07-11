@@ -1,6 +1,6 @@
 ﻿namespace Ship_Class_System_Config_Editor.FileDefinitions
 {
-    public class DamageModifiers
+    public class DamageModifiers : ICloneable
     {
         public float Bullet { get; set; }
         public float Rocket { get; set; }
@@ -18,5 +18,10 @@
             Energy = 1,
             Kinetic = 1
         };
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

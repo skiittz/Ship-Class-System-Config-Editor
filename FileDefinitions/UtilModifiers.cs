@@ -1,6 +1,6 @@
 ﻿namespace Ship_Class_System_Config_Editor.FileDefinitions
 {
-    public class UtilModifiers
+    public class UtilModifiers : ICloneable
     {
         public float AssemblerSpeed { get; set; }
         public float DrillHarvestMultipler { get; set; }
@@ -31,5 +31,10 @@
             BoostDuration = 10,
             BoostCoolDown = 60
         };
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

@@ -128,13 +128,17 @@ namespace Ship_Class_System_Config_Editor
 
         private void btn_AddNewClass_Click(object sender, EventArgs e)
         {
-            var newId = currentFile.GridClasses.Any() ? currentFile.GridClasses.OrderByDescending(x => x.Id).First().Id + 1 : 0;
             var newClass = GridClass.Default;
-            newClass.Id = newId;
+            newClass.Id = NextGridClassId();
             currentFile.GridClasses.Add(newClass);
 
             gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
             gridClassesBindingSource.ResetBindings(false);
+        }
+
+        private int NextGridClassId()
+        {
+            return currentFile.GridClasses.Any() ? currentFile.GridClasses.OrderByDescending(x => x.Id).First().Id + 1 : 0;
         }
 
         private void btnRemoveBlockLimit_Click(object sender, EventArgs e)
@@ -197,6 +201,7 @@ namespace Ship_Class_System_Config_Editor
             blockTypesBindingSource.ResetBindings(false);
 
             lstbx_BlockTypes.ClearSelected();
+            lstbx_BlockLimits_SelectedIndexChanged(sender, e);
         }
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,6 +259,33 @@ namespace Ship_Class_System_Config_Editor
 
             var selectedClassIds = currentFile.GridClasses.Where(x => selectedClasses.Contains(x.Name)).Select(x => (long)x.Id);
             selectedZone.AllowedClassesById = selectedClassIds.ToList();
+        }
+
+        private void btn_DupGridClass_Click(object sender, EventArgs e)
+        {
+            var source = (GridClass)lstbx_GridClasses.SelectedItem;
+            var newClass = source.CloneToId(NextGridClassId());
+            newClass.Name = $"{newClass.Name} (Copy)";
+            currentFile.GridClasses.Add(newClass);
+
+            gridClassesBindingSource.DataSource = currentFile.GridClasses.OrderBy(x => x.Id);
+            gridClassesBindingSource.ResetBindings(false);
+        }
+
+        private BlockLimit copiedBlockLimit;
+        private void btnCopyGridClass_Click(object sender, EventArgs e)
+        {
+            copiedBlockLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+        }
+
+        private void btn_PasteGridClass_Click(object sender, EventArgs e)
+        {
+            var gridClass = (GridClass)lstbx_GridClasses.SelectedItem;
+            gridClass.BlockLimits.Add((BlockLimit)copiedBlockLimit.Clone());
+
+            blockLimitsBindingSource.ResetBindings(false);
+            blockTypesBindingSource.ResetBindings(false);
+            lstbx_BlockLimits_SelectedIndexChanged(sender, e);
         }
     }
 }

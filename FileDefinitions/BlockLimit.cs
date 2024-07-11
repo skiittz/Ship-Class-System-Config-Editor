@@ -1,8 +1,9 @@
-﻿using System.Xml.Serialization;
+﻿using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace Ship_Class_System_Config_Editor.FileDefinitions
 {
-    public class BlockLimit
+    public class BlockLimit : ICloneable
     {
         public string Name { get; set; }
         public int MaxCount { get; set; }
@@ -15,9 +16,17 @@ namespace Ship_Class_System_Config_Editor.FileDefinitions
             MaxCount = 0,
             BlockTypes = new List<BlockType>()
         };
+
+        public object Clone()
+        {
+            var copy = (BlockLimit)this.MemberwiseClone();
+            copy.BlockTypes = this.BlockTypes.Clone();
+
+            return copy;
+        }
     }
 
-    public class BlockType
+    public class BlockType : ICloneable
     {
         public string TypeId { get; set; }
         public string SubtypeId { get; set; }
@@ -30,5 +39,10 @@ namespace Ship_Class_System_Config_Editor.FileDefinitions
             SubtypeId = "NewSubTypeId",
             CountWeight = 1
         };
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
