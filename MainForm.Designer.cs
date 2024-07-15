@@ -1,4 +1,6 @@
-﻿namespace Ship_Class_System_Config_Editor
+﻿using Ship_Class_System_Config_Editor.FileDefinitions;
+
+namespace Ship_Class_System_Config_Editor
 {
     partial class MainForm
     {
@@ -122,8 +124,8 @@
             blockLimitBindingSource = new BindingSource(components);
             blockTypesBindingSource = new BindingSource(components);
             groupBox7 = new GroupBox();
-            btn_PasteGridClass = new Button();
-            btnCopyGridClass = new Button();
+            btn_PasteBlockLimit = new Button();
+            btnCopyBlockLimit = new Button();
             chkBx_TurnedOffByNoFlyZone = new CheckBox();
             label27 = new Label();
             txtMaxCount = new TextBox();
@@ -137,6 +139,9 @@
             blockTypeBindingSource = new BindingSource(components);
             label28 = new Label();
             groupBox9 = new GroupBox();
+            btnApplySelectedBlock = new Button();
+            cmbBoxBlockQuickSelect = new ComboBox();
+            cubeBlockBindingSource = new BindingSource(components);
             label31 = new Label();
             txtCountWeight = new TextBox();
             selectedBlockTypeBindingSource = new BindingSource(components);
@@ -150,6 +155,7 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             loadFileToolStripMenuItem = new ToolStripMenuItem();
             saveFileToolStripMenuItem = new ToolStripMenuItem();
+            loadBlockDefinitionFileToolStripMenuItem = new ToolStripMenuItem();
             groupBox10 = new GroupBox();
             txtGlobalMaxSpeed = new TextBox();
             label33 = new Label();
@@ -171,6 +177,7 @@
             txtId = new TextBox();
             lstNoFlyZones = new ListBox();
             zoneBindingSource = new BindingSource(components);
+            openDefFileDialog = new OpenFileDialog();
             chkBox_IncludeAiFactions = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)modConfigBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ignoreFactionTagsBindingSource).BeginInit();
@@ -195,6 +202,7 @@
             groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).BeginInit();
             groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cubeBlockBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox10.SuspendLayout();
@@ -215,13 +223,8 @@
             chkBox_IncludeAiFactions.Text = "Include Ai Factions";
             chkBox_IncludeAiFactions.UseVisualStyleBackColor = true;
             // 
-            // modConfigBindingSource
-            // 
-            modConfigBindingSource.DataSource = typeof(Definitions.ModConfig);
-            // 
             // lstBx_IgnoredFactionTags
             // 
-            lstBx_IgnoredFactionTags.DataSource = ignoreFactionTagsBindingSource;
             lstBx_IgnoredFactionTags.FormattingEnabled = true;
             lstBx_IgnoredFactionTags.ItemHeight = 15;
             lstBx_IgnoredFactionTags.Location = new Point(12, 62);
@@ -395,7 +398,7 @@
             // 
             // selectedGridClassBindingSource
             // 
-            selectedGridClassBindingSource.DataSource = typeof(FileDefinitions.GridClass);
+            selectedGridClassBindingSource.DataSource = typeof(GridClass);
             // 
             // txtClassName
             // 
@@ -692,7 +695,7 @@
             // 
             // selectedClassDamageModifiersBindingSource
             // 
-            selectedClassDamageModifiersBindingSource.DataSource = typeof(FileDefinitions.DamageModifiers);
+            selectedClassDamageModifiersBindingSource.DataSource = typeof(DamageModifiers);
             // 
             // label25
             // 
@@ -842,7 +845,7 @@
             // 
             // selectedClassUtilModifiersBindingSource
             // 
-            selectedClassUtilModifiersBindingSource.DataSource = typeof(FileDefinitions.UtilModifiers);
+            selectedClassUtilModifiersBindingSource.DataSource = typeof(UtilModifiers);
             // 
             // txtBoostDuration
             // 
@@ -1054,7 +1057,7 @@
             // 
             // blockLimitBindingSource
             // 
-            blockLimitBindingSource.DataSource = typeof(FileDefinitions.BlockLimit);
+            blockLimitBindingSource.DataSource = typeof(BlockLimit);
             // 
             // blockTypesBindingSource
             // 
@@ -1063,8 +1066,8 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(btn_PasteGridClass);
-            groupBox7.Controls.Add(btnCopyGridClass);
+            groupBox7.Controls.Add(btn_PasteBlockLimit);
+            groupBox7.Controls.Add(btnCopyBlockLimit);
             groupBox7.Controls.Add(chkBx_TurnedOffByNoFlyZone);
             groupBox7.Controls.Add(label27);
             groupBox7.Controls.Add(txtMaxCount);
@@ -1072,34 +1075,34 @@
             groupBox7.Controls.Add(btnRemoveBlockLimit);
             groupBox7.Controls.Add(btnAddBlockLimit);
             groupBox7.Controls.Add(lstbx_BlockLimits);
-            groupBox7.Location = new Point(525, 400);
+            groupBox7.Location = new Point(455, 400);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(195, 417);
             groupBox7.TabIndex = 10;
             groupBox7.TabStop = false;
             groupBox7.Text = "Block Limits";
             // 
-            // btn_PasteGridClass
+            // btn_PasteBlockLimit
             // 
-            btn_PasteGridClass.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_PasteGridClass.Location = new Point(58, 374);
-            btn_PasteGridClass.Name = "btn_PasteGridClass";
-            btn_PasteGridClass.Size = new Size(75, 27);
-            btn_PasteGridClass.TabIndex = 21;
-            btn_PasteGridClass.Text = "Paste";
-            btn_PasteGridClass.UseVisualStyleBackColor = true;
-            btn_PasteGridClass.Click += btn_PasteGridClass_Click;
+            btn_PasteBlockLimit.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_PasteBlockLimit.Location = new Point(58, 374);
+            btn_PasteBlockLimit.Name = "btn_PasteBlockLimit";
+            btn_PasteBlockLimit.Size = new Size(75, 27);
+            btn_PasteBlockLimit.TabIndex = 21;
+            btn_PasteBlockLimit.Text = "Paste";
+            btn_PasteBlockLimit.UseVisualStyleBackColor = true;
+            btn_PasteBlockLimit.Click += btn_PasteBlockLimit_Click;
             // 
-            // btnCopyGridClass
+            // btnCopyBlockLimit
             // 
-            btnCopyGridClass.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCopyGridClass.Location = new Point(58, 344);
-            btnCopyGridClass.Name = "btnCopyGridClass";
-            btnCopyGridClass.Size = new Size(75, 24);
-            btnCopyGridClass.TabIndex = 21;
-            btnCopyGridClass.Text = "Copy";
-            btnCopyGridClass.UseVisualStyleBackColor = true;
-            btnCopyGridClass.Click += btnCopyGridClass_Click;
+            btnCopyBlockLimit.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCopyBlockLimit.Location = new Point(58, 344);
+            btnCopyBlockLimit.Name = "btnCopyBlockLimit";
+            btnCopyBlockLimit.Size = new Size(75, 24);
+            btnCopyBlockLimit.TabIndex = 21;
+            btnCopyBlockLimit.Text = "Copy";
+            btnCopyBlockLimit.UseVisualStyleBackColor = true;
+            btnCopyBlockLimit.Click += btnCopyBlockLimit_Click;
             // 
             // chkBx_TurnedOffByNoFlyZone
             // 
@@ -1162,7 +1165,7 @@
             groupBox8.Controls.Add(btnRemoveBlockType);
             groupBox8.Controls.Add(btnAddBlockType);
             groupBox8.Controls.Add(lstbx_BlockTypes);
-            groupBox8.Location = new Point(727, 400);
+            groupBox8.Location = new Point(656, 400);
             groupBox8.Name = "groupBox8";
             groupBox8.Size = new Size(307, 417);
             groupBox8.TabIndex = 12;
@@ -1203,12 +1206,12 @@
             // 
             // blockTypeBindingSource
             // 
-            blockTypeBindingSource.DataSource = typeof(FileDefinitions.BlockType);
+            blockTypeBindingSource.DataSource = typeof(BlockType);
             // 
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new Point(1051, 543);
+            label28.Location = new Point(969, 576);
             label28.Name = "label28";
             label28.Size = new Size(23, 15);
             label28.TabIndex = 13;
@@ -1216,23 +1219,48 @@
             // 
             // groupBox9
             // 
+            groupBox9.Controls.Add(btnApplySelectedBlock);
+            groupBox9.Controls.Add(cmbBoxBlockQuickSelect);
             groupBox9.Controls.Add(label31);
             groupBox9.Controls.Add(txtCountWeight);
             groupBox9.Controls.Add(label30);
             groupBox9.Controls.Add(txtSubTypeId);
             groupBox9.Controls.Add(label29);
             groupBox9.Controls.Add(txtTypeId);
-            groupBox9.Location = new Point(1084, 491);
+            groupBox9.Location = new Point(998, 521);
             groupBox9.Name = "groupBox9";
-            groupBox9.Size = new Size(220, 118);
+            groupBox9.Size = new Size(326, 145);
             groupBox9.TabIndex = 14;
             groupBox9.TabStop = false;
             groupBox9.Text = "Block Settings";
             // 
+            // btnApplySelectedBlock
+            // 
+            btnApplySelectedBlock.Location = new Point(292, 81);
+            btnApplySelectedBlock.Name = "btnApplySelectedBlock";
+            btnApplySelectedBlock.Size = new Size(28, 23);
+            btnApplySelectedBlock.TabIndex = 21;
+            btnApplySelectedBlock.Text = "*";
+            btnApplySelectedBlock.UseVisualStyleBackColor = true;
+            btnApplySelectedBlock.Click += btnApplySelectedBlock_Click;
+            // 
+            // cmbBoxBlockQuickSelect
+            // 
+            cmbBoxBlockQuickSelect.DataBindings.Add(new Binding("Text", cubeBlockBindingSource, "DisplayName", true));
+            cmbBoxBlockQuickSelect.FormattingEnabled = true;
+            cmbBoxBlockQuickSelect.Location = new Point(6, 81);
+            cmbBoxBlockQuickSelect.Name = "cmbBoxBlockQuickSelect";
+            cmbBoxBlockQuickSelect.Size = new Size(285, 23);
+            cmbBoxBlockQuickSelect.TabIndex = 6;
+            // 
+            // cubeBlockBindingSource
+            // 
+            cubeBlockBindingSource.DataSource = typeof(CubeBlock);
+            // 
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new Point(6, 84);
+            label31.Location = new Point(6, 113);
             label31.Name = "label31";
             label31.Size = new Size(84, 15);
             label31.TabIndex = 5;
@@ -1241,14 +1269,14 @@
             // txtCountWeight
             // 
             txtCountWeight.DataBindings.Add(new Binding("Text", selectedBlockTypeBindingSource, "CountWeight", true));
-            txtCountWeight.Location = new Point(96, 81);
+            txtCountWeight.Location = new Point(96, 110);
             txtCountWeight.Name = "txtCountWeight";
             txtCountWeight.Size = new Size(114, 23);
             txtCountWeight.TabIndex = 4;
             // 
             // selectedBlockTypeBindingSource
             // 
-            selectedBlockTypeBindingSource.DataSource = typeof(FileDefinitions.BlockType);
+            selectedBlockTypeBindingSource.DataSource = typeof(BlockType);
             // 
             // label30
             // 
@@ -1264,7 +1292,7 @@
             txtSubTypeId.DataBindings.Add(new Binding("Text", selectedBlockTypeBindingSource, "SubtypeId", true));
             txtSubTypeId.Location = new Point(96, 52);
             txtSubTypeId.Name = "txtSubTypeId";
-            txtSubTypeId.Size = new Size(114, 23);
+            txtSubTypeId.Size = new Size(172, 23);
             txtSubTypeId.TabIndex = 2;
             // 
             // label29
@@ -1281,7 +1309,7 @@
             txtTypeId.DataBindings.Add(new Binding("Text", selectedBlockTypeBindingSource, "TypeId", true));
             txtTypeId.Location = new Point(96, 23);
             txtTypeId.Name = "txtTypeId";
-            txtTypeId.Size = new Size(114, 23);
+            txtTypeId.Size = new Size(172, 23);
             txtTypeId.TabIndex = 0;
             // 
             // openFileDialog1
@@ -1304,7 +1332,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { loadFileToolStripMenuItem, saveFileToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { loadFileToolStripMenuItem, saveFileToolStripMenuItem, loadBlockDefinitionFileToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
@@ -1312,16 +1340,23 @@
             // loadFileToolStripMenuItem
             // 
             loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            loadFileToolStripMenuItem.Size = new Size(121, 22);
+            loadFileToolStripMenuItem.Size = new Size(208, 22);
             loadFileToolStripMenuItem.Text = "Load File";
             loadFileToolStripMenuItem.Click += loadFileToolStripMenuItem_Click;
             // 
             // saveFileToolStripMenuItem
             // 
             saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            saveFileToolStripMenuItem.Size = new Size(121, 22);
+            saveFileToolStripMenuItem.Size = new Size(208, 22);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
+            // 
+            // loadBlockDefinitionFileToolStripMenuItem
+            // 
+            loadBlockDefinitionFileToolStripMenuItem.Name = "loadBlockDefinitionFileToolStripMenuItem";
+            loadBlockDefinitionFileToolStripMenuItem.Size = new Size(208, 22);
+            loadBlockDefinitionFileToolStripMenuItem.Text = "Load Block Definition File";
+            loadBlockDefinitionFileToolStripMenuItem.Click += loadBlockDefinitionFileToolStripMenuItem_Click;
             // 
             // groupBox10
             // 
@@ -1367,7 +1402,7 @@
             groupBox11.Controls.Add(label38);
             groupBox11.Controls.Add(txtId);
             groupBox11.Controls.Add(lstNoFlyZones);
-            groupBox11.Location = new Point(163, 400);
+            groupBox11.Location = new Point(23, 400);
             groupBox11.Name = "groupBox11";
             groupBox11.Size = new Size(357, 417);
             groupBox11.TabIndex = 20;
@@ -1426,7 +1461,7 @@
             // 
             // noFlyZonesBindingSource
             // 
-            noFlyZonesBindingSource.DataSource = typeof(FileDefinitions.Zones);
+            noFlyZonesBindingSource.DataSource = typeof(Zones);
             // 
             // label42
             // 
@@ -1521,6 +1556,10 @@
             lstNoFlyZones.TabIndex = 21;
             lstNoFlyZones.SelectedIndexChanged += lstNoFlyZones_SelectedIndexChanged;
             // 
+            // openDefFileDialog
+            // 
+            openDefFileDialog.FileOk += openDefFileDialog_FileOk;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1572,6 +1611,7 @@
             ((System.ComponentModel.ISupportInitialize)blockTypeBindingSource).EndInit();
             groupBox9.ResumeLayout(false);
             groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cubeBlockBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)selectedBlockTypeBindingSource).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -1727,7 +1767,12 @@
         private ListBox lstBx_AllowedClasses;
         private CheckBox chkBx_TurnedOffByNoFlyZone;
         private Button btn_DupGridClass;
-        private Button btnCopyGridClass;
-        private Button btn_PasteGridClass;
+        private Button btnCopyBlockLimit;
+        private Button btn_PasteBlockLimit;
+        private ToolStripMenuItem loadBlockDefinitionFileToolStripMenuItem;
+        private OpenFileDialog openDefFileDialog;
+        private ComboBox cmbBoxBlockQuickSelect;
+        private BindingSource cubeBlockBindingSource;
+        private Button btnApplySelectedBlock;
     }
 }

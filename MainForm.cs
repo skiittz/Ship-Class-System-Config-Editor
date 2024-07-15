@@ -1,8 +1,7 @@
-using Ship_Class_System_Config_Editor.Definitions;
 using System.Text;
 using System.Xml.Serialization;
+using Ship_Class_System_Config_Editor.Definitions;
 using Ship_Class_System_Config_Editor.FileDefinitions;
-using System.Linq;
 
 namespace Ship_Class_System_Config_Editor
 {
@@ -11,6 +10,7 @@ namespace Ship_Class_System_Config_Editor
         private ModConfig currentFile => (ModConfig)modConfigBindingSource.DataSource;
         static Encoding encoding => Encoding.GetEncoding("UTF-16");
         private List<string> blockTypeNames = new List<string>();
+        private DefinitionFiles definitionFiles = new DefinitionFiles();
         public MainForm()
         {
             InitializeComponent();
@@ -19,6 +19,8 @@ namespace Ship_Class_System_Config_Editor
         private void Form1_Load(object sender, EventArgs e)
         {
             modConfigBindingSource.DataSource = new ModConfig();
+            definitionFiles.LoadConfig();
+            RefreshBlockQuickSelect();
         }
 
         public void LoadConfig(string filePath)
@@ -114,6 +116,8 @@ namespace Ship_Class_System_Config_Editor
 
             selectedBlockTypeBindingSource.DataSource = selectedType;
             selectedBlockTypeBindingSource.ResetBindings(false);
+            if(cmbBoxBlockQuickSelect.Items.Count > 0)
+                cmbBoxBlockQuickSelect.SelectedIndex = 0;
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -273,15 +277,53 @@ namespace Ship_Class_System_Config_Editor
         }
 
         private BlockLimit copiedBlockLimit;
-        private void btnCopyGridClass_Click(object sender, EventArgs e)
+        private void btnCopyBlockLimit_Click(object sender, EventArgs e)
         {
             copiedBlockLimit = (BlockLimit)lstbx_BlockLimits.SelectedItem;
         }
 
-        private void btn_PasteGridClass_Click(object sender, EventArgs e)
+        private void btn_PasteBlockLimit_Click(object sender, EventArgs e)
         {
             var gridClass = (GridClass)lstbx_GridClasses.SelectedItem;
             gridClass.BlockLimits.Add((BlockLimit)copiedBlockLimit.Clone());
+
+            blockLimitsBindingSource.ResetBindings(false);
+            blockTypesBindingSource.ResetBindings(false);
+            lstbx_BlockLimits_SelectedIndexChanged(sender, e);
+        }
+
+        private void loadBlockDefinitionFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openDefFileDialog.ShowDialog();
+        }
+
+        private void openDefFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            definitionFiles.AddFile(openDefFileDialog.FileName);
+            RefreshBlockQuickSelect();
+        }
+
+        private void RefreshBlockQuickSelect()
+        {
+            cmbBoxBlockQuickSelect.Items.Clear();
+            cmbBoxBlockQuickSelect.Items.AddRange(definitionFiles.LoadedDefinitions.Select(x => x.DisplayName).ToArray());
+        }
+
+        private void btnApplySelectedBlock_Click(object sender, EventArgs e)
+        {
+            var quickSelectName = cmbBoxBlockQuickSelect.SelectedItem as string;
+            var quickSelectBlockDefinition = definitionFiles.LoadedDefinitions.SingleOrDefault(x => x.DisplayName == quickSelectName) as CubeBlock;
+            if (quickSelectBlockDefinition == null)
+                return;
+
+            var selectedLimits = (BlockLimit)lstbx_BlockLimits.SelectedItem;
+            var selectedType = selectedLimits.BlockTypes.SingleOrDefault(x => x.CombinedName == (string)lstbx_BlockTypes.SelectedItem);
+            if(selectedType == null) return;
+
+            selectedType.TypeId = quickSelectBlockDefinition.TypeId;
+            selectedType.SubtypeId = quickSelectBlockDefinition.SubtypeId;
+            txtTypeId.Text = selectedType.TypeId;
+            txtSubTypeId.Text = selectedType.SubtypeId;
 
             blockLimitsBindingSource.ResetBindings(false);
             blockTypesBindingSource.ResetBindings(false);

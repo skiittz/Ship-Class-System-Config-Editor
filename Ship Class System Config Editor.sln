@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ship Class System Config Editor", "Ship Class System Config Editor.csproj", "{8ED7FA91-5BB0-4931-A37E-BA30626FBD83}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipClassSystemConfigEditor_Definitions", "..\ShipClassSystemConfigEditor_Definitions\ShipClassSystemConfigEditor_Definitions.csproj", "{918999E3-E681-4CAA-BC59-752B0ABAD4C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8ED7FA91-5BB0-4931-A37E-BA30626FBD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED7FA91-5BB0-4931-A37E-BA30626FBD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED7FA91-5BB0-4931-A37E-BA30626FBD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918999E3-E681-4CAA-BC59-752B0ABAD4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918999E3-E681-4CAA-BC59-752B0ABAD4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918999E3-E681-4CAA-BC59-752B0ABAD4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918999E3-E681-4CAA-BC59-752B0ABAD4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

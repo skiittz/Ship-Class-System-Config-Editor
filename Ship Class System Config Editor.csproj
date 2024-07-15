@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Sandbox.Game.XmlSerializers">
-      <HintPath>F:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.XmlSerializers.dll</HintPath>
+    <Reference Include="ProtoBuf.Net.Core">
+      <HintPath>F:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\ProtoBuf.Net.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

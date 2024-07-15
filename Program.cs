@@ -1,4 +1,3 @@
-using Ship_Class_System_Config_Editor.Definitions;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Text;
@@ -18,7 +17,6 @@ namespace Ship_Class_System_Config_Editor
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
-
         }
     }
 }
