@@ -51,6 +51,10 @@
             this.lstBlockTypes = new System.Windows.Forms.ListBox();
             this.btnCopyBlockLimit = new System.Windows.Forms.Button();
             this.btnPasteLimit = new System.Windows.Forms.Button();
+            this.btnAddBlockLimit = new System.Windows.Forms.Button();
+            this.btnAddBlockType = new System.Windows.Forms.Button();
+            this.btnRemoveBlockLimit = new System.Windows.Forms.Button();
+            this.btnRemoveBlockType = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blockLimitBindingSource)).BeginInit();
@@ -61,6 +65,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRemoveBlockLimit);
+            this.groupBox1.Controls.Add(this.btnAddBlockLimit);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.lstBlockLimits);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -148,6 +154,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnRemoveBlockType);
+            this.groupBox3.Controls.Add(this.btnAddBlockType);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.lstBlockTypes);
             this.groupBox3.Location = new System.Drawing.Point(432, 12);
@@ -272,11 +280,55 @@
             this.btnPasteLimit.UseVisualStyleBackColor = true;
             this.btnPasteLimit.Click += new System.EventHandler(this.btnPasteLimit_Click);
             // 
+            // btnAddBlockLimit
+            // 
+            this.btnAddBlockLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBlockLimit.Location = new System.Drawing.Point(188, 197);
+            this.btnAddBlockLimit.Name = "btnAddBlockLimit";
+            this.btnAddBlockLimit.Size = new System.Drawing.Size(24, 23);
+            this.btnAddBlockLimit.TabIndex = 4;
+            this.btnAddBlockLimit.Text = "+";
+            this.btnAddBlockLimit.UseVisualStyleBackColor = true;
+            this.btnAddBlockLimit.Click += new System.EventHandler(this.btnAddBlockLimit_Click);
+            // 
+            // btnAddBlockType
+            // 
+            this.btnAddBlockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBlockType.Location = new System.Drawing.Point(169, 197);
+            this.btnAddBlockType.Name = "btnAddBlockType";
+            this.btnAddBlockType.Size = new System.Drawing.Size(24, 23);
+            this.btnAddBlockType.TabIndex = 5;
+            this.btnAddBlockType.Text = "+";
+            this.btnAddBlockType.UseVisualStyleBackColor = true;
+            this.btnAddBlockType.Click += new System.EventHandler(this.btnAddBlockType_Click);
+            // 
+            // btnRemoveBlockLimit
+            // 
+            this.btnRemoveBlockLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveBlockLimit.Location = new System.Drawing.Point(188, 221);
+            this.btnRemoveBlockLimit.Name = "btnRemoveBlockLimit";
+            this.btnRemoveBlockLimit.Size = new System.Drawing.Size(24, 23);
+            this.btnRemoveBlockLimit.TabIndex = 5;
+            this.btnRemoveBlockLimit.Text = "-";
+            this.btnRemoveBlockLimit.UseVisualStyleBackColor = true;
+            this.btnRemoveBlockLimit.Click += new System.EventHandler(this.btnRemoveBlockLimit_Click);
+            // 
+            // btnRemoveBlockType
+            // 
+            this.btnRemoveBlockType.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveBlockType.Location = new System.Drawing.Point(169, 221);
+            this.btnRemoveBlockType.Name = "btnRemoveBlockType";
+            this.btnRemoveBlockType.Size = new System.Drawing.Size(24, 23);
+            this.btnRemoveBlockType.TabIndex = 6;
+            this.btnRemoveBlockType.Text = "-";
+            this.btnRemoveBlockType.UseVisualStyleBackColor = true;
+            this.btnRemoveBlockType.Click += new System.EventHandler(this.btnRemoveBlockType_Click);
+            // 
             // BlockLimits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 279);
+            this.ClientSize = new System.Drawing.Size(874, 309);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "BlockLimits";
@@ -317,5 +369,9 @@
         private System.Windows.Forms.Button btnSelectDefinition;
         private System.Windows.Forms.Button btnPasteLimit;
         private System.Windows.Forms.Button btnCopyBlockLimit;
+        private System.Windows.Forms.Button btnRemoveBlockLimit;
+        private System.Windows.Forms.Button btnAddBlockLimit;
+        private System.Windows.Forms.Button btnRemoveBlockType;
+        private System.Windows.Forms.Button btnAddBlockType;
     }
 }

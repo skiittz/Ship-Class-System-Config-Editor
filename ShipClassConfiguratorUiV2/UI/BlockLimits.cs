@@ -48,5 +48,29 @@ namespace ShipClassConfiguratorUiV2.UI
             ((List<BlockLimit>) blockLimitBindingSource.DataSource).Add(BlockLimitClipboard);
             blockLimitBindingSource.ResetBindings(false);
         }
+
+        private void btnAddBlockLimit_Click(object sender, System.EventArgs e)
+        {
+            ((List<BlockLimit>)blockLimitBindingSource.DataSource).Add(new BlockLimit{ Name = "New Limit", BlockTypes = new List<BlockType>()});
+            blockLimitBindingSource.ResetBindings(false);
+        }
+
+        private void btnRemoveBlockLimit_Click(object sender, System.EventArgs e)
+        {
+            ((List<BlockLimit>)blockLimitBindingSource.DataSource).RemoveAt(lstBlockLimits.SelectedIndex);
+            blockLimitBindingSource.ResetBindings(false);
+        }
+
+        private void btnAddBlockType_Click(object sender, System.EventArgs e)
+        {
+            ((List<BlockType>)blockTypeBindingSource.DataSource).Add(new BlockType{TypeId = "tbd", SubtypeId = "tbd"});
+            blockTypeBindingSource.ResetBindings(false);
+        }
+
+        private void btnRemoveBlockType_Click(object sender, System.EventArgs e)
+        {
+            ((List<BlockType>)blockTypeBindingSource.DataSource).RemoveAt(lstBlockTypes.SelectedIndex);
+            blockTypeBindingSource.ResetBindings(false);
+        }
     }
 }
