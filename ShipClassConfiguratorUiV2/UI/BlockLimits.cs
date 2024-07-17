@@ -37,7 +37,7 @@ namespace ShipClassConfiguratorUiV2.UI
         public BlockLimit BlockLimitClipboard;
         private void btnCopyBlockLimit_Click(object sender, System.EventArgs e)
         {
-            BlockLimitClipboard = lstBlockLimits.SelectedItem as BlockLimit;
+            BlockLimitClipboard = (lstBlockLimits.SelectedItem as BlockLimit).Clone() as BlockLimit;
         }
 
         private void btnPasteLimit_Click(object sender, System.EventArgs e)
