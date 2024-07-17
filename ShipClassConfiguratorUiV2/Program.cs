@@ -18,7 +18,7 @@ namespace ShipClassConfiguratorUiV2
             Application.SetCompatibleTextRenderingDefault(false);
 
             var update = new GithubUpdateCheck("skiittz", "Ship-Class-System-Config-Editor");
-            if (update.IsUpdateAvailable(Application.ProductVersion, VersionChange.Revision))
+            if (update.IsUpdateAvailable(Application.ProductVersion, VersionChange.Minor))
             {
                 var result = MessageBox.Show($"Version {update.Version()} is available!  Visit release page?", $"Current Version:{Application.ProductVersion}", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)

@@ -133,5 +133,10 @@ namespace ShipClassConfiguratorUiV2
             blockLimits.ShowDialog();
             BlockLimitClipboard = blockLimits.BlockLimitClipboard;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Current Version: {Application.ProductVersion}");
+        }
     }
 }
