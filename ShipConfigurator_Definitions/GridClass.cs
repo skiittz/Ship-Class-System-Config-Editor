@@ -1,4 +1,6 @@
-﻿namespace Ship_Class_System_Config_Editor.FileDefinitions
+﻿using System.Collections.Generic;
+
+namespace ShipConfigurator_Definitions
 {
     public class GridClass
     {
@@ -22,7 +24,7 @@
 
         public GridClass()
         {
-            BlockLimits = new List<BlockLimit>(); 
+            BlockLimits = new List<BlockLimit>();
             Modifiers = new UtilModifiers();
             DamageModifiers = new DamageModifiers();
         }
