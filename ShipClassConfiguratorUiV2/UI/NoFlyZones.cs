@@ -64,7 +64,9 @@ namespace ShipClassConfiguratorUiV2.UI
             lst_AllowedClasses.SelectedItems.Clear();
             foreach (var id in selectedIds)
             {
-                lst_AllowedClasses.SelectedItems.Add(allGrids.Single(x => x.Id == id));
+                var gridClass = allGrids.SingleOrDefault(x => x.Id == id);
+                if(gridClass != null)
+                    lst_AllowedClasses.SelectedItems.Add(gridClass);
             }
             lbl_AllowedClasses.Text = String.Join(",", selectedIds);
         }
