@@ -49,6 +49,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lstBlockTypes = new System.Windows.Forms.ListBox();
+            this.btnCopyBlockLimit = new System.Windows.Forms.Button();
+            this.btnPasteLimit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blockLimitBindingSource)).BeginInit();
@@ -70,6 +72,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPasteLimit);
+            this.groupBox2.Controls.Add(this.btnCopyBlockLimit);
             this.groupBox2.Controls.Add(this.chk_NoFlyDisable);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMaxCount);
@@ -77,7 +81,7 @@
             this.groupBox2.Controls.Add(this.txtBlockLimitName);
             this.groupBox2.Location = new System.Drawing.Point(188, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(220, 108);
+            this.groupBox2.Size = new System.Drawing.Size(220, 120);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
@@ -246,6 +250,28 @@
             this.lstBlockTypes.Size = new System.Drawing.Size(157, 225);
             this.lstBlockTypes.TabIndex = 0;
             // 
+            // btnCopyBlockLimit
+            // 
+            this.btnCopyBlockLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyBlockLimit.Location = new System.Drawing.Point(118, 88);
+            this.btnCopyBlockLimit.Name = "btnCopyBlockLimit";
+            this.btnCopyBlockLimit.Size = new System.Drawing.Size(44, 22);
+            this.btnCopyBlockLimit.TabIndex = 4;
+            this.btnCopyBlockLimit.Text = "Copy";
+            this.btnCopyBlockLimit.UseVisualStyleBackColor = true;
+            this.btnCopyBlockLimit.Click += new System.EventHandler(this.btnCopyBlockLimit_Click);
+            // 
+            // btnPasteLimit
+            // 
+            this.btnPasteLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasteLimit.Location = new System.Drawing.Point(170, 88);
+            this.btnPasteLimit.Name = "btnPasteLimit";
+            this.btnPasteLimit.Size = new System.Drawing.Size(44, 22);
+            this.btnPasteLimit.TabIndex = 5;
+            this.btnPasteLimit.Text = "Paste";
+            this.btnPasteLimit.UseVisualStyleBackColor = true;
+            this.btnPasteLimit.Click += new System.EventHandler(this.btnPasteLimit_Click);
+            // 
             // BlockLimits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,5 +315,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnSelectDefinition;
+        private System.Windows.Forms.Button btnPasteLimit;
+        private System.Windows.Forms.Button btnCopyBlockLimit;
     }
 }

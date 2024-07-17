@@ -123,13 +123,15 @@ namespace ShipClassConfiguratorUiV2
             RefreshStats();
         }
 
+        private BlockLimit BlockLimitClipboard;
         private void btn_EditBlockLimits_Click(object sender, EventArgs e)
         {
             var selectedClass = lst_Classes.SelectedItem as GridClass;
             if(selectedClass == null) return;
 
-            var blockLimits = new BlockLimits(selectedClass.BlockLimits, blockDefinitions);
+            var blockLimits = new BlockLimits(selectedClass.BlockLimits, blockDefinitions, BlockLimitClipboard);
             blockLimits.ShowDialog();
+            BlockLimitClipboard = blockLimits.BlockLimitClipboard;
         }
     }
 }
