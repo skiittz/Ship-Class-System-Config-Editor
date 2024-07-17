@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
-using GitHubUpdate;
+using Mayerch1.GithubUpdateCheck;
 
 namespace ShipClassConfiguratorUiV2
 {
@@ -18,18 +16,20 @@ namespace ShipClassConfiguratorUiV2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
 
-            var checker = new UpdateChecker("skiittz", "Ship-Class-System-Config-Editor");
-            UpdateType update = checker.CheckUpdate().Result;
-            if (update != UpdateType.None)
+            var update = new GithubUpdateCheck("skiittz", "Ship-Class-System-Config-Editor");
+            if (update.IsUpdateAvailable(Application.ProductVersion))
             {
-                var result = new UpdateNotifyDialog(checker).ShowDialog();
+                var result = MessageBox.Show($"Version {update.Version()} is available!  Visit release page?", $"Current Version:{Application.ProductVersion}", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    checker.DownloadAsset("ShipClassConfigurator.zip"); // opens it in the user's browser
+                    Process.Start("https://github.com/skiittz/Ship-Class-System-Config-Editor/releases");
                 }
             }
+
+            Application.Run(new MainForm());
+
+            
         }
     }
 }
