@@ -18,5 +18,19 @@ namespace ShipClassConfiguratorUiV2.UI
         {
             blockTypeBindingSource.DataSource = ((BlockLimit)lstBlockLimits.SelectedItem).BlockTypes;
         }
+
+        private void btnSelectDefinition_Click(object sender, System.EventArgs e)
+        {
+            var blockDefinitionSelector = new BlockDefinitionSelector(blockDefinitions);
+            blockDefinitionSelector.ShowDialog();
+            var result = blockDefinitionSelector.selectedBlockDefinition;
+            if(result == null)
+                return;
+
+            var selectedItem = lstBlockTypes.SelectedItem as BlockType;
+            selectedItem.TypeId = result.TypeId;
+            selectedItem.SubtypeId = result.SubtypeId;
+            blockTypeBindingSource.ResetBindings(false);
+        }
     }
 }

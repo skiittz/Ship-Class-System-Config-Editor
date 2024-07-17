@@ -516,7 +516,7 @@ namespace ShipClassConfiguratorUiV2
             this.btn_EditBlockLimits.Name = "btn_EditBlockLimits";
             this.btn_EditBlockLimits.Size = new System.Drawing.Size(135, 19);
             this.btn_EditBlockLimits.TabIndex = 7;
-            this.btn_EditBlockLimits.Text = "Edit Block Limits!";
+            this.btn_EditBlockLimits.Text = "Edit Block Limits";
             this.btn_EditBlockLimits.UseVisualStyleBackColor = true;
             this.btn_EditBlockLimits.Click += new System.EventHandler(this.btn_EditBlockLimits_Click);
             // 

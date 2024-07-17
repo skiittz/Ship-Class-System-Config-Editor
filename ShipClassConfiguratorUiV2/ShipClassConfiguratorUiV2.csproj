@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\BlockDefinitionSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BlockDefinitionSelector.Designer.cs">
+      <DependentUpon>BlockDefinitionSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\BlockLimits.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="UI\NoFlyZones.Designer.cs">
       <DependentUpon>NoFlyZones.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\BlockDefinitionSelector.resx">
+      <DependentUpon>BlockDefinitionSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\BlockLimits.resx">
       <DependentUpon>BlockLimits.cs</DependentUpon>
     </EmbeddedResource>
