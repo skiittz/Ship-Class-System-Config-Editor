@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFilterBox = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lst_BlockDefinitions = new System.Windows.Forms.ListBox();
             this.cubeBlockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFilterBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cubeBlockBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFilterBox);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -55,6 +57,16 @@
             this.groupBox1.Size = new System.Drawing.Size(257, 450);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // txtFilterBox
+            // 
+            this.txtFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.txtFilterBox.Location = new System.Drawing.Point(56, 54);
+            this.txtFilterBox.Name = "txtFilterBox";
+            this.txtFilterBox.Size = new System.Drawing.Size(189, 20);
+            this.txtFilterBox.TabIndex = 3;
+            this.txtFilterBox.TextChanged += new System.EventHandler(this.txtFilterBox_TextChanged);
             // 
             // btnCancel
             // 
@@ -100,13 +112,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Add block definitions by copying the .sbc file into the Definitions folder";
             // 
-            // txtFilterBox
+            // label2
             // 
-            this.txtFilterBox.Location = new System.Drawing.Point(6, 54);
-            this.txtFilterBox.Name = "txtFilterBox";
-            this.txtFilterBox.Size = new System.Drawing.Size(239, 20);
-            this.txtFilterBox.TabIndex = 3;
-            this.txtFilterBox.TextChanged += new System.EventHandler(this.txtFilterBox_TextChanged);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Search:";
             // 
             // BlockDefinitionSelector
             // 
@@ -133,5 +146,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtFilterBox;
+        private System.Windows.Forms.Label label2;
     }
 }
