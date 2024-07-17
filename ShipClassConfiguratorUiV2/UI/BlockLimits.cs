@@ -45,7 +45,7 @@ namespace ShipClassConfiguratorUiV2.UI
             if (BlockLimitClipboard == null)
                 return;
 
-            ((List<BlockLimit>) blockLimitBindingSource.DataSource).Add(BlockLimitClipboard);
+            ((List<BlockLimit>) blockLimitBindingSource.DataSource).Add(BlockLimitClipboard.Clone() as BlockLimit);
             blockLimitBindingSource.ResetBindings(false);
         }
 

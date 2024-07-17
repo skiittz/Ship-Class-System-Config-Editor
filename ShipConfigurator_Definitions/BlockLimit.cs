@@ -21,7 +21,7 @@ namespace ShipConfigurator_Definitions
         {
             var copy = (BlockLimit)this.MemberwiseClone();
             copy.BlockTypes = this.BlockTypes.Clone();
-
+            copy.Name = $"{this.Name} (Copy)";
             return copy;
         }
     }
